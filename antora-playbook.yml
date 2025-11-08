@@ -1,0 +1,12 @@
+site:
+  title: Notes de Cours
+  start_page: tn09-doc
+content:
+  sources:
+  - url : TN09/
+    branches: HEAD
+
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
