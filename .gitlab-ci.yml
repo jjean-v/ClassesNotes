@@ -1,0 +1,11 @@
+stages:
+  - build
+
+
+build-antora:
+  image: docker.io/antora/antora:latest
+  stage: build
+  script:
+    - antora antora-playbook.yml --stacktrace
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
