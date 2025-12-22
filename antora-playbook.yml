@@ -1,10 +1,14 @@
 site:
   title: Notes de Cours
-  start_page: tn09-doc
+  start_page: tn09-doc::index.adoc
 content:
+  branches: HEAD
   sources:
-  - url : TN09/
-    branches: HEAD
+  - url : .
+    start_path: TN09
+  - url: .
+    start_path: SR03
+  
 
 ui:
   bundle:
