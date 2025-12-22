@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Build the site
-podman run -itv /home/jean_ubuntu/projet/:/antora antora-image:latest
+podman run -itv $CLASSES_NOTES_PATH:/antora antora-image:latest
 
 # Go to build directory
 cd build/site
