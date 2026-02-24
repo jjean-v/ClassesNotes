@@ -1,0 +1,41 @@
+== Machin Learning
+
+### Presentation
+
+No streaming but lectures will be recorded
+Check the syllabus for info about the topics of each lecture 
+
+Professor: Daniele Loiacono
+
+Practical classes
+
+- Will cover exam-like exercises and practival examples
+- Will present practical examples using python, bring your laptop
+
+### Context 
+
+- Understand how to model a problem 
+- What type of model is best suited for this tasks
+- How do i define the inputs and outputs effectively
+
+Learn the main principles and the main techniques of ML 
+
+- What are the main differences between suprervised and unsepervised model 
+
+Learn how to assess the performances of ML models
+
+- Which performance metrics are suitable for classification, regression or clustering tasks
+- How do i accurately evaluate the perormance of a model 
+- How do I detect and manage common issues such as overfitting or underfitting
+
+Learn of limitation sof ML techniques and how to choose the most appropriate one for your problem 
+
+Provide the basic background to understand the latest developments in this fields
+
+## Grades 
+
+Written test
+
+- Not involve coding
+- Questions, exercices, code
+- See examples on WeBeep

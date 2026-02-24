@@ -1,0 +1,35 @@
+== Supervised Learning
+
+# Supervised Learning
+
+
+## What is supervised learning ?
+
+- It is the most popular and well established learning paradigm 
+- Data from an unknown function thath maps an input x to an output t: D = { x,t}
+- Goal: Learn a good approximation of f
+- Input variables of __x__ are usually called **features** or **attributes**
+- Output variable __t__ are also called **targets** or **labels**
+
+#### Tasks 
+
+- Classification if t is a discrete variable 
+- Regression if t is a Linear variable
+- Probability Estimation if __t__ is a probability
+
+## When to apply Supervised learning ?
+
+- When human cannot perform the tasks (DNA analysis)
+- When human can perform the tasks but cannot explain how (medical image analysis)
+- When the tasks changes over time (stocks price prediction)
+- When the tasks is user-specific (movie recommendation)
+
+### Overview of Supervised Training
+
+- We want to approximate a function f given a data set D
+
+Elements of Supervised Learning Algorithms
+
+- Representation
+- Evaluation
+- Optimization
