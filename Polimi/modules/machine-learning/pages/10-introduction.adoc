@@ -1,0 +1,79 @@
+== CM1
+
+
+# Introduction 
+
+## What is Machine Learning ?
+
+
+A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, improves with experience E
+
+ML is the sub-field fo AI where the knowledge comes from:
+- Experience (data that provide you information)
+- Induction
+
+
+## Why Machine Learning 
+
+image::ml-graph.png[]
+
+## Learning Paradigms In ML
+ 
+### Supervised Learning
+
+#### Goals
+
+- Learn form data a model that maps known inputs to known outputs
+- Training set: D= {(x,t)} => t = f(x)
+
+#### Tasks
+
+- Classification if t is a discrete variable 
+- Regression if t is a Linear variable
+- Probabilistic
+
+#### Techniques
+
+- Linear model
+- Artificial Neural Networks
+- Support Vector Machines
+- Decisions trees
+
+### Unserpervised Learning
+
+##### Goal 
+
+- Learn previsously unknown paterns and efficient data representation
+- Training Set D= {x} => f(x)
+
+#### Tasks
+
+- Clustering
+- Dimensionality Reduction
+
+#### Techniques
+
+- K-means
+- Self-organizing maps
+- Principal Components Analysis
+
+
+### Reinforcement Learning
+
+You have a signal that award you in case of good action, and punish you in case of bad action
+
+#### Goal
+
+- Learning the optimal policy 
+
+#### Problems
+
+- Markov decision Process (PDP)
+- Partially Observable MDP (POMDP)
+- Stochastic Games (SG)
+
+#### Techniques
+
+- Q-learning
+- Sarsa
+- Fitted Q-iteration

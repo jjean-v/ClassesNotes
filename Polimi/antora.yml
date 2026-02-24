@@ -4,3 +4,4 @@ version: ~
 nav:
 - modules/ROOT/nav.adoc
 - modules/substainable-development/nav.adoc
+- modules/machine-learning/nav.adoc
