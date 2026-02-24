@@ -10,7 +10,8 @@ content:
     start_path: TN09
   - url: .
     start_path: SR03
-  
+  - url: .
+    start_path: Polimi
 
 ui:
   bundle:

@@ -1,0 +1,6 @@
+name: substainable-development-doc
+title: Polimi
+version: ~
+nav:
+- modules/ROOT/nav.adoc
+- modules/substainable-development/nav.adoc
