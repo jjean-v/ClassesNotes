@@ -1,0 +1,93 @@
+== Introduction
+
+# Robotic Middlewares
+
+## ROS
+
+Robot Operating System
+
+ROS usually define as a middleware
+
+- Offer abstraction level to not have to think about low-level hardware
+
+#### Main features 
+
+- Portability: Provides a common programming model regardless the programming language and the system architecture
+- Relialibility: Middleware are tested independently. They permit to develop robot controllers without having to manage the complexity 
+
+Several middleware have been developed in recent years
+ 
+- OROCOS [Europe]
+- ORCA [Europe]
+- BRICS [Europe]
+- OpenRTM [Japan]
+- OpenRave [US]
+- ROS [US]
+
+Let's see their common features and main differences
+
+## OROCOS: Open Robot COntrols Software
+
+- Open source license
+- Modularitay and flexibility
+- Not related to robot industries
+- Working with any kind of device
+- Not related to a unique programming language 
+
+Recognised as the first ROS model 
+
+## ORCA: Components for Robotics
+ 
+
+The aims of the project is to focus on software reuse for scientific and industrial applications
+
+- Enable Software reuse defining commonly-use interfaces
+- Simplify software reuse providing high-level libraires
+
+
+## RT Middleware
+
+- Designed to be more high-level 
+- Combining different modules
+
+
+## BRICS: Best Practices in Robotics
+
+Aimed at find out the "best practices" in the developing of the robotics operating systems 
+
+- Investigate the weakness of robotic projects
+- Investigates the integration between hardware & software
+
+## ROS: Robot Operating System
+
+Presented in 2009, it's a meta-operating system for robotics with a rich ecosystem of tools and programs
+
+The robot was not used but everyone used the middleware, became a standard
+
+- Publisher Subscriber paradigm
+- Tools: Lot of tools to perform debugging on what is happening inside
+- Capabilites: Full sets are already written code for standard task, system of package
+- Ecosystem: Lot of functionnality already written, by ROS or by the commynity
+
+
+### What about ROS2 ?
+
+ROS1 end of life (EOL) May 2025
+
+Time to move to ROS2
+With all its bug, lack of documentation, overcomplicated structure 
+
+But it's the new standard 
+
+- Will use Humble in this course
+- One of the most used (50%)
+
+### Installation
+
+- Use of Docker
+- We all use the same docker image
+- No dependencies issues
+- There is a github page to automatically download the image (7GB)
+- ROS images is not small, download it before next lecture
+- Might need a GUI (data visualization, debugging, etc)
+- WSL should now support gui applications

@@ -1,0 +1,78 @@
+== CM1
+
+
+# Introduction to Computer Security
+
+## What is a secure System ?
+
+Goes Back to the **CIA Paradigm**
+
+- Confidentiality: Information can be accessed anloy by authorized entities
+- Integrity: Information van be modified only by authorized entities, and only in the way such entities are entitled to modify it
+- Availability: Information must be available to all the parties who hav a right to access it, within pecified time constraints.
+
+"A" conflicts with "C" and "I": Engineering problem
+
+### Vulnerabilites vs Exploits
+
+- Vulnerabilites: A system that would have a "bug" that impact security (Dial pad with number erased)
+- Exploit: A specific way to use one or more bulnerabilites to accompilish a specific objective that violates the constraints (Lockping and lock picking techniques)
+
+If I can fix the vulnerability I might make the exploit more difficult.
+
+
+### Assets and Threats
+
+Misconceptions More Security means More Protection
+- Assets: Identifies what is valuable for an organization 
+    - hardware: laptops, computers, phones
+    - softwate: applications, operatiing system, db
+    - data: data stored in db
+- Threat: Potential violation of CIA; circumstance potentially cuasing a CIA violation 
+    - Denial of Service: software or hardware unavailable
+    - Identity thet: unauthorizd access to softare/data
+    - data leak: unauthorized release of data 
+
+
+### Attackers, Hackers, Pirates ...
+
+- Attacker: Whoever/Whatever performs the attack.
+- Hackers: Someone with advanced understanding of computers and computer networks, and willingness to learn "everything"
+- Black Hats: Malicious Hackers 
+
+### Risks
+
+- Risks: Statistical and economical evaluation of the exposure to damage because of the presence of Vulnerabilites and Threats
+    **Risk = Assets x Vulnerabilites x Threats**
+
+### Security vs Cost Balance
+
+(Reduction of vunlerabilites + Damage containment) vs (cost)
+
+#### Direct costs 
+
+- Management
+- Operational
+- Equipment
+
+#### Indirect costs 
+
+- Less usability
+- Slower performance
+- Less privacy (due to security controls)
+- Reduced productivity (users are slower)
+
+### More Money != More Security
+
+Throwing more money at the problem will not necessarily solve it
+
+### Trust and Assumptions
+
+- We must set boindaries
+- Part of the system will be **assumed** secure
+    - Can we trus the security officer ?
+    - ... the software we just installed ?
+    - ... our own code ?
+    - ... the compiler ?
+    - ... the BIOS ?
+    - ... the hardware ?

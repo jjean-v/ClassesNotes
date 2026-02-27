@@ -1,0 +1,44 @@
+== Robotics
+
+### Presentation
+
+- Matteo Matteucci
+
+### Context 
+
+- Learning how to design and implement the software which make autonomous
+- Anatomy of a mobile Robot
+- Localization and Mapping 
+- Robot autonomous navigation
+- Middleware in robotics 
+- ROS Basics
+- ROS Advanced
+- Navigation in ROS 
+
+## Grades 
+
+- Written test covergin the whole program up to 26
+- ROS home project graded up to 6
+- Final note on 32
+- 15 to pass 
+
+## Materials
+
+- Checks Webeep
+
+## Past exams
+
+- Expect 3 theoretical questions + 2 practical exercises (on average)
+- No coding exercise since you have it in the home project
+- Few past exam examples are available on the course website
+
+## Challenges
+
+- Alternative to doing the projects (first project still required)
+- Require more time tahn doing the project
+- Experiment on real robots 
+- Will have soft deadlines
+- Competions are after the end of the course, for exam scores we generally wait the end of the competition
+- Subject "Challenge Robotics 2026 - FRE"
+ 
+

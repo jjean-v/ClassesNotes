@@ -1,0 +1,46 @@
+== Machin Learning
+
+### Presentation
+
+- This course provide an holistic approach to systems security
+- Will study what happens on hosts, network
+- Alessandro Barenghi: alessandro.barenghi@polimi.it
+- Tutor/Assistant Lorenzo Binosi
+
+### Context 
+
+- Framing what a secure system is
+- Fundamentals of cryptography
+- Authentification, Authorization and Access control
+- Application and Web Security 
+- Network Security 
+- Malware
+
+## Grades 
+
+- Written test 
+
+#### Bonus:
+
+- Homework Challencges (up to 3 points)
+- Last for 2 weeks in May
+-  6 challenges
+
+## Prerequisites
+
+- C programming ant its execution model
+- A little of bash scripting and Python
+- IA32 (aka i386) assembly
+- Web and Network protocl fundamentals 
+- Be able to work in a GNU/Linux environment with a CLI
+
+## Books
+
+- D.Gollman "Computer Security", Wiley (3rd ed)
+- C.Anley, J.Heasman, F.linfer, G.Richarter "The Shellcoder's Handbook", Wiley 2007
+- Advanced Linux Programming - Chapter 10
+
+## Hacking group and CTFs
+
+- Tower of Hanoi group
+- NetscLab
