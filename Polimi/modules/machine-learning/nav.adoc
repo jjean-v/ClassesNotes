@@ -1,3 +1,4 @@
 .Machine Learning
-** xref:index.adoc[Presentation]
-** xref:CM1.adoc[CM1]
+** xref:0-presentation.adoc[Presentation]
+** xref:20-supervised-learning.adoc[Supervised Learning]
+** xref:30-linear-regression.adoc[Linear Regression]
