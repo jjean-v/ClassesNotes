@@ -1,0 +1,126 @@
+== Cryptographie
+
+# Introduction to Cryptographie
+
+The study of techniques to allow secure communciation and datea storafe in presence of attackers
+
+- Confidentiality: data can be accessed only by chosen entities
+- INtegrity/freshness: detect/prevent tampering or replays
+- Aythenticity: data and their origin are certified
+- Non-repudiation: data creator cannot repudiate created data
+- Advanced features: proofs of knowledge/computation
+
+
+## 1553 - Bellaso
+
+- Write a text on how to code a text
+- **Separates the encryption method from the key**
+
+## 1883 - Kerchoff's six principles for a good cipher
+
+- It must be practically, if not mathematically unbreakable
+- **It should be possible to make it public, even to the ennemy**
+- The key must be communicable without written notes and changeable whenever the correpondants want
+- It must be applicable to telegraphic communication
+- It must be portable, and should be operable by a single person
+- Finally, given the operating environment, it should be easy to use, it shouldn't impose excessive mental load, nor require a large set of reules to be known
+
+
+## Modern History
+
+- Mechanincal copution changes cryptography
+    - First rotor machine in 1917 by Ed Hebern
+    - Desing "popularizd" in WWII by German Enigma
+- Cryptanalysist at Bechley park (Turing among them) credited for a decisive effort in winnning the war by Eisenhower
+
+## 1950 - Syannon - Nash
+
+- Proves that a mathematically unbreakable cipher exists
+
+### 1955 - Nash
+
+- Argues that computationally secure ciphers are ok
+    - Consider a cipher with a finite, lambda bit long, key
+    - Takes too long time for the attackers
+    - **Called computational security**
+
+
+## Outlines of the topics
+
+- Definition of ciphers as components with dunctionalities
+- How to obtain confidentiality, integrity, data,/origin authentication
+- An overview of protocols (combination of ciphers)
+- Goal: be able to **use** crytographhic components properly
+
+
+### Before we start
+
+#### Randomness
+
+Randomness has nothing to do with value but how you generate them
+
+### Definitions
+
+- Paintexte space **Pùù: set f
+- ypher text C
+- Text K
+
+#### Functions 
+
+- Encryption duncrion
+- Decryption dunction
+
+Insert image
+
+
+#### Shonnon Theorem 1949
+
+- The key should be fresh for any new message
+- For any plaintext you get a unique cipher text
+- No 2 plaintext give you the same cipher text
+- It's **Bijective**
+
+### Problem key management
+
+- Storing key material and changing keys is a nightmare
+- Perfect cipher broken in practice due to key theft/reuse
+- Generating random keys was also an issue (and caused breaks)
+
+## Computationnaly secure cryptography
+
+- Build  cipher so that a succeshul attack is also able to solve a hard computational problem efficiently
+    - Solve a generic nonlinear Boolean simultaneous equation set
+    - Factor large intefers/ find discrete logarithms
+    - Decode a random code/ fin d shortest lattice vector
+
+- Open question: prove an exponential lower bound for the time taken to salve a hard problem, which has efficiently verifiable solution
+    - it would shift form a computation securitu **assumption** to a theorem
+    - ... and prove **P!=NP** as a **corollary**
+
+
+### Outline of te method
+
+- Define the ideal attacker behaviour
+- Assume a given computational problem is hard
+- Prove that any non ideal attacker solves the hard problem
+
+### Motivation and assumption
+
+- We want to use a finite-length they and a Vernam cipher
+    - We somehow need to "expand" the key
+- We assume that the attacker can only perform poly(lambda) computation
+
+#### Definition
+
+A CSPRNG is a deterministic funtion PRNG:    whose ouptun cannot be distinguished from an uniform random sampling od .... I il the CSPRNG **stretch**
+
+### CSPRNGs in prqctive
+
+#### Existence
+
+- In practice we have only candidte CSPRINGs
+    - We have no **proofùù that a function PRNG exists
+    - Proving that a CSPRNG exists inmplies directly P != NP
+
+
+

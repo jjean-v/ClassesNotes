@@ -1,0 +1,99 @@
+= Linear Regression
+
+
+## What is Regression ?
+
+- Learn an **approximation** of function f(x) that maps an inputs __x__ to a continuous output __t__  from a dataset __D__
+[stem]
+++++
+D = \{(x, t)\} \Rightarrow t = f(x)
+++++
+
+- How do we model __f__ ?
+- How do we evaluate our approximation ?
+- How do we optimize our approximation ?
+
+
+## Linear Regression
+
+In linear regression stem:[\mathcal{D} = \{(x, t)\} \Rightarrow t = f(x)] is modeled with **linear functions**
+
+- Linear models can be easily **explained**
+- A linear regression problem can be solved **anatically**
+- Linear functions can be extended to model also **non-linear relationships**
+- More sophisticated methods are based on linear regression
+
+### Model
+
+The simplest linear model can be defined as 
+
+[stem]
+++++
+y(\mathbf{x}, \mathbf{w}) = w_0 + \sum_{j=1}^{D-1} w_j x_j = \mathbf{w}^T \mathbf{x}
+++++
+
+
+### Loss funtions and optimization
+
+A convenient **error loss function** is the **sum of squared erros (SSE)**
+
+## Linear Model and Basis Functions
+
+### Linear Models
+
+- A linear combination of the input variables is not enough to model data...
+- ... but we just need a regression model that is **linear in the parameters**
+- We can define a model using non-linear **basis functions**
+
+[stem]
+++++
+y(\mathbf{x}, \mathbf{w}) = w_0 + \sum_{j=1}^{M-1} w_j \phi_j(\mathbf{x})
+++++
+
+[stem]
+++++
+y(\mathbf{x}, \mathbf{w}) = \mathbf{w}^T \boldsymbol{\phi}(\mathbf{x})
+++++
+
+With
+
+[stem]
+++++
+\boldsymbol{\phi}(\mathbf{x}) = \left(1, \phi_1(\mathbf{x}), \ldots, \phi_{M-1}(\mathbf{x})\right)^T
+++++
+
+[stem]
+++++
+\mathbf{w} = \left(w_0, w_1, \ldots, w_{M-1}\right)^T
+++++
+
+## Least Squares
+
+### Ordinary Least Squares
+
+For lineary models, a closed-form optimization of the RSS, known as **least-squares**, starting from the matrix form of the loss function:
+
+[stem]
+++++
+L(\mathbf{w}) = \frac{1}{2} RSS(\mathbf{w}) = \frac{1}{2} (\mathbf{t} - \Phi \mathbf{w})^T (\mathbf{t} - \Phi \mathbf{w})
+++++
+
+- We can compute first and second derivative of $L(w)$ to find the optimal __w__
+
+Add derivative image
+
+
+### Sequential Learning
+
+- Closed-form optimization (OLS) is not feasible with large dataset
+- Instead, a **stochastics** (or **sequential**) gradien descent is possible
+- **Least Main Square** (LMS) Algorithm:
+
+=> w^(n+1)^ = w^(n)^ - alpha^(n)^ (triangle) L(xn)
+
+- alpha is called learning rate and to guarantee convergence:
+
+
+### Multiple Outputs
+
+- What happens if our regression problem has multiple outputs
