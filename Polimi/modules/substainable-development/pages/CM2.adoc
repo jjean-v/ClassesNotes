@@ -1,0 +1,228 @@
+== CM2
+
+
+# Indicators
+
+Indicators are meaningful when are used to define comparison. It is possible to compare indicators by two ways:
+
+* Spatial (among different countries)
+** First-level -> Internal comparison among similar countries (geographically or same situation)
+** Second-level -> World Wide positioning of the country
+
+* Temporal (among years)
+
+
+## Socio-Economic Indicators
+
+
+### Total population and Share urban population
+
+**Advantages Living in Urban Area:**
+
+- Less land used
+- Can share facilities/infrastructures
+- Can scale up the infrastructure -> more efficient
+
+**Disadvantages Living in Urban Area:**
+
+* Risk in case of climate catastrophe
+* More difficult to increase quality life
+** Important growth, the infrastructures aren't sufficient anymore
+
+* The trend was always to moving to Urban Area
+* In Urban Area, Product comsuption (water, electricity) is increasing
+
+### Gross Domestic Products
+
+The Gross Domestic Product (GDP) is one of the most common and wildly used economic indicator:
+
+> **GDP = C + I + G + X - M**
+
+Where:
+
+* **C**: Private comsuption and personal expenditures og households such as food, rent, medical, expenses ...
+* **I**: Defined as investments bu business or households in capital
+* **G**: Government expenditures on final goods and services. It includes salaries of public servants purchase of weapons for the military, and any investment expenditure by a government.
+* **X**: Gross exports
+* **M**: Gross imports
+
+The level of GDP in different countries may be compared through different ways.
+
+* See GDP vs GNI (National Income)
+
+#### Calcution
+
+The GDP can be calculated in two different ways:
+
+* **Current currency exchange:** calculated by exchange rates prevailling on international currency markets
+** This cna offer better indication about the countrie's international purchasing power
+** Can see how is your power around the world (with your money)
+** But can be misleading because some countries can have a lower average cost but not show with this approach
+
+* **Purchasing power parity:** of each currency relative to a selected standard and fixed years
+** This methods shows the relative effective domestic purchasing power of the average producer or consumer.
+
+#### Limitations
+
+* Don't show the disparity inside of the country, just the average one
+* Don't take into account, investment for a change in the country or investment for a reconstruction
+** If Natural Disaster or War: Investment of Money to restore
+*** This is going to increase the GDP, but in reality investing just to come back at the level it was before
+* Ignore externalities ( such as damage to the environment, exploiting natural ressources without creating a substainable development): Improve GDP but for a short period, cand lead to other problem
+* Not take into account the black market, where the money spent is not registered, and the non-monetary economy 
+
+#### Income inequality within countries
+
+Also, within the same country, we can expreience income inequalities, and **we can measure it**
+
+* The **Lorenz Curve**
+
+The more you are close to the diagonal, the more your countries have a equally population
+
+* The **GINI Coefficient (bounded btw O and 1)**
+
+#### How to explain Income Inequalities ?
+
+Different aspect: Geographical, Political, Historical
+
+* Educational Levels
+* Rural / Urban
+* Discriminations (racist, gender, religion)
+* Government policies
+
+### Human Development Index (HDI)
+
+One of the most meaningful social indicator is the HDI (UNDP), that combines the normalize measures of life expectancy, literacy, educational attainment, and GNI per capita for countries worldwide
+
+3 Aspects:
+
+* Long and Healthy life
+* Knowledge
+* A decent standard of living
+
+====
+Calcul of an Indicator = value - min value / max value - min value 
+====
+
+#### GDP != HDI 
+
+
+# History of Economic Development
+
+How have we came to inequalities ?
+
+Huge Gross world output (equivalent of GDP at the time) big increase in the mid 19s (1850)
+
+## Industrial Revolution
+
+Increased Agricultural productivity => Industries => Trading
+
+### Endogenous growth
+
+By the early 1800s, the new era og moden economic growth was now underway. How did it diffuse from England
+
+* **Endogenous Growth**: Development from the inside
+** Circle: Increase of the Gdp <=> More investment on technical innovation
+
+**This is leading the economic aspect**
+
+### Catch-up growth
+
+* **Catch-up growth**: growth of the so-called "laggard" country (China)
+
+Import technology => Increase of the GDP
+
+It is much more faster than the endegenous growth, because you're importing the technology
+
+### The diffusion of economic growth
+
+There are several general factors that are conductive to the movement of those ripples from the center of the technological forefront out to the rest of the world:
+
+* Proximity 
+** 1800s(England => West Europe)
+** 1900s (USA => South America)
+* Good Agricultural conditions
+* Good coastlines for trade
+** Close to sea is a huge benefit
+* Available energy resource: places with their own energy resources, be it coal, oil and gas, hydr .. have a huge advantage in catch-up growth
+* Physical environment conductive to human health: a disease-ridden environment, one that is burdened by malaria and other terrible infections is extremely nefast to the growth
+* Policy
+
+### The Second World War 
+
+After the II World War, the worl econmy was divided in 3 geopolitical divides:
+
+Permit a huge collaboration between the different countries
+* Marshall Plan 
+
+
+After the Second WW
+
+* Some countries followed a "late" catch-up
+* Other "developping countries" followed their examples
+* China join the national trade in the beginning of 2000s
+
+This is how our own era of globalization came into being, step by step, after WW2
+
+### The Idea of Clinical Economics
+
+Treat the countries as you approach sick people
+
+* Try to understand the cause
+* And then find a treatment
+
+#### Diagnosis checklist for poverty
+
+* **1. Poverty Trap**: the country is **too poor** for making the necessary investments
+    Only national banks can take the risk of borrowing them money
+
+* **2. Bad economic policies**: Wrong kind of investment strategy, closing the borders when international trade would make more sense, choosing central planning when a market system would be better
+    
+**  Ex: Argentina (cyclic error) 
+*** Used to keep asking money for other countries and the International Monetary Funding
+*** Economic crisis every 5-10 years
+*** When you borrow money you expect the GDP growth would be higher than the credit
+*** Argentina didn't invest in infrastructures
+
+** Ex: Venezuela
+*** Rich in oil 
+*** Oil the money was distributed to the population (communist, socialist policy)
+*** Only one economic sector
+*** At some point the coast for extracting the Venezuela oils is more expensive than in other countries 
+
+* **3. Financial insolvency of the environment of the governments**
+* **4. Geography**
+** Climate
+*** Extreme conditions
+*** Agricultural productivity
+*** Disease
+
+* **5. Poor governance**: Economic policies are riddled with corruption, inefficiency, incompetence, or all of the above
+* **6. Cultural barriers and beliefs**: Social environment is affecting a lot
+** Demography: Fertility rate
+** Attitudes toward education
+** Attitudes towad women
+
+* **7. Geopolitics**: Country's political and security relations with its neighboors, foes, and allies are extremely important
+** Infrastuctures (railway): between inside and outside the country can have a huge impact
+
+
+Look how many wars are going on in the last 25 years and why
+
+
+### Achieving Social Inclusion
+
+Let's come back to the GINI Coefficient
+
+**Comment the USA case**
+
+Increasing trend in the GINI coefficient in some parts of the world suggest three fundamental forces
+
+* Rising **gap in earnings** between high-skilled and low-skilled workers
+** Globalization => Delocalization (huge impact for the low-skilled workers)
+* Shiting Income from labor to capital
+* Political system
+
+====
+Homework: read the two papers to see what we will took about 
+====  
