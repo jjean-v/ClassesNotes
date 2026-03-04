@@ -1,3 +1,4 @@
 .Substainable Development
 ** xref:index.adoc[Presentation]
 ** xref:CM1.adoc[CM1]
+** xref:CM2.adoc[CM2]

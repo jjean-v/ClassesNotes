@@ -4,3 +4,5 @@ version: ~
 nav:
   - modules/substainable-development/nav.adoc
   - modules/machine-learning/nav.adoc
+  - modules/computer-security/nav.adoc
+  - modules/robotics/nav.adoc

@@ -112,14 +112,14 @@ Insert image
 
 #### Definition
 
-A CSPRNG is a deterministic funtion PRNG:    whose ouptun cannot be distinguished from an uniform random sampling od .... I il the CSPRNG **stretch**
+A CSPRNG is a deterministic funtion PRNG:    whose ouptut cannot be distinguished from an uniform random sampling od .... I il the CSPRNG **stretch**
 
 ### CSPRNGs in prqctive
 
 #### Existence
 
 - In practice we have only candidte CSPRINGs
-    - We have no **proofùù that a function PRNG exists
+    - We have no **proof that a function PRNG exists**
     - Proving that a CSPRNG exists inmplies directly P != NP
 
 
