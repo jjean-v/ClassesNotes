@@ -18,7 +18,7 @@
 ## Grades 
 
 - Written test covergin the whole program up to 26
-- ROS home project graded up to 6
+- ROS home project graded up to 6 (groups of 3-4)
 - Final note on 32
 - 15 to pass 
 

@@ -1,0 +1,43 @@
+== Robotics
+
+# Robotics
+
+First term of robotics, IRobots, Isaac Azimov (1980). 
+
+====
+Introduction of three laws of robotics 
+====
+
+### ISO Definition
+
+*A robot is an actuated mechanism programmable in towo or more awes with a degree of autonomy, moving thin its environment, to perform intended tasks. 
+Autonomy in this context means the ability to perform intended tasks based on current state and sensing, without human intervention.
+
+*A service robot is a robot that perform useful tasks for humains or equipment excluding industrial automation application.
+
+* A personal service robot or a service robot for professional use is a service robot used for a commercial task, usually operated by a property trained operator. (cleaning robot for public places, hospital...)
+
+* A professional service robot or a service robot for professional ise os a servcice robot used for a commercial task, usually operated by a properly trained operator. (cleaning robot for public splaces, delivery robot in offices, hospital).In this context an operator is a person designated to start, monitor
+and stop the intended operation of a robot or a robot system.
+
+
+#### Information about ISO definition
+
+* A robot system, is a system comprising robot(s), end-effector(s) and any machinery, equipment, or sensors supporting the robot performing its tasks
+* According to the definition, "a degree of autonomy" is required for service robots ranging from partial autonomy to full autonomy (without active humain intervention).  In this context human robot-interaction means information and action
+exchanges between human and robot to perform a task by means of a user interface.
+
+## What makes an autonomous Robots ?
+
+A machine gets information from a set of sensors and upon these accomplish its task autonomously by moving its body parts.
+
+* Sensing => Sensors 
+* Planning => Algorithms
+* Acting => Actuator
+
+This steps are done in sequences or in the same time.
+
+====
+This class is focused on Algorithms
+====
+

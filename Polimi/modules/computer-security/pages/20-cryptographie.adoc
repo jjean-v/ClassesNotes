@@ -124,3 +124,18 @@ A CSPRNG is a deterministic funtion PRNG:    whose ouptut cannot be distinguishe
 
 
 
+#### How to build a CSPRNG
+
+4 steps
+
+* **Phase 1**: Coins {0,1}
+* **Phase 2**: you have a input, and a boolean function, you use it to have different Coins
+* **Phase 3**: Same but, with a deterministic function 
+
+The goal is, given the inputs, you shouldn't be able to know if it comes from phase 1, 2 or phase 3.
+
+Exist something in cryptography that is a phase 3 but slow, 1 Kb/s. 
+
+We simplify the problem to find a solution
+
+- It is a bijective function
