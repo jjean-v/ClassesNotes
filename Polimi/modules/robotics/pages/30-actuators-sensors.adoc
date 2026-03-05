@@ -88,8 +88,28 @@ Brushless motors overcome these problems but they are more expensive
 * Electromagnets on the stator
 
 
-#### Stepper motors
+#### Stepper Motors
 
-A **stepper motors** is a brushless, synchronous electric motor thath converts digital pulses into mechanical shft rotations
+A **stepper motors** is a brushless, synchronous electric motor thath converts digital pulses into mechanical shift rotations
 
+* Rotation angle proportional to input pulse
+* Foll torque at standstill
+* Precise positioning and repeatability
+* Very reliable
+* Wide range of rotational sppeds
+
+Usually used in printers
+
+#### Servo Motors
+
+**Servo** specialized motors that can move their shaft to a specific position
+
+* used in hoby radio control applications
+* Measure their own position and compensate for external loads when corresponding to a control signal
+
+Servo motors are build from DC motors by adding
+
+* Gear reduction
+* Position sensor
+* Control electronics
 
