@@ -6,7 +6,7 @@ The study of techniques to allow secure communciation and datea storafe in prese
 
 - Confidentiality: data can be accessed only by chosen entities
 - Integrity/freshness: detect/prevent tampering or replays
-- Aythenticity: data and their origin are certified
+- Authenticity: data and their origin are certified
 - Non-repudiation: data creator cannot repudiate created data
 - Advanced features: proofs of knowledge/computation
 
@@ -23,15 +23,15 @@ The study of techniques to allow secure communciation and datea storafe in prese
 - The key must be communicable without written notes and changeable whenever the correpondants want
 - It must be applicable to telegraphic communication
 - It must be portable, and should be operable by a single person
-- Finally, given the operating environment, it should be easy to use, it shouldn't impose excessive mental load, nor require a large set of reules to be known
+- Finally, given the operating environment, it should be easy to use, it shouldn't impose excessive mental load, nor require a large set of rules to be known
 
 
 ## Modern History
 
-- Mechanincal copution changes cryptography
-    - First rotor machine in 1917 by Ed Hebern
-    - Desing "popularizd" in WWII by German Enigma
-- Cryptanalysist at Bechley park (Turing among them) credited for a decisive effort in winnning the war by Eisenhower
+* Mechanical compution changes cryptography
+** First rotor machine in 1917 by Ed Hebern
+** Design "popularized" in WWII by German Enigma
+* Cryptanalysist at Bechley park (Turing among them) credited for a decisive effort in winnning the war by Eisenhower
 
 ## 1950 - Syannon - Nash
 
@@ -39,15 +39,15 @@ The study of techniques to allow secure communciation and datea storafe in prese
 
 ### 1955 - Nash
 
-- Argues that computationally secure ciphers are ok
-    - Consider a cipher with a finite, lambda bit long, key
-    - Takes too long time for the attackers
-    - **Called computational security**
+* Argues that computationally secure ciphers are ok
+** Consider a cipher with a finite, lambda bit long, key
+**Takes too long time for the attackers
+** **Called computational security**
 
 
 ## Outlines of the topics
 
-- Definition of ciphers as components with dunctionalities
+- Definition of ciphers as components with functionalities
 - How to obtain confidentiality, integrity, data,/origin authentication
 - An overview of protocols (combination of ciphers)
 - Goal: be able to **use** crytographhic components properly
@@ -61,14 +61,14 @@ Randomness has nothing to do with value but how you generate them
 
 ### Definitions
 
-- Paintexte space **Pùù: set f
-- ypher text C
-- Text K
+- Paintexte space **P**: set f
+- Cypher text **C**
+- Text **K**
 
 #### Functions 
 
-- Encryption duncrion
-- Decryption dunction
+- Encryption function
+- Decryption function
 
 Insert image
 
@@ -88,14 +88,14 @@ Insert image
 
 ## Computationnaly secure cryptography
 
-- Build  cipher so that a succeshul attack is also able to solve a hard computational problem efficiently
-    - Solve a generic nonlinear Boolean simultaneous equation set
-    - Factor large intefers/ find discrete logarithms
-    - Decode a random code/ fin d shortest lattice vector
+* Build  cipher so that a succesful attack is also able to solve a hard computational problem efficiently
+** Solve a generic nonlinear Boolean simultaneous equation set
+** Factor large intefers/ find discrete logarithms
+** Decode a random code/ find shortest lattice vector
 
-- Open question: prove an exponential lower bound for the time taken to salve a hard problem, which has efficiently verifiable solution
-    - it would shift form a computation securitu **assumption** to a theorem
-    - ... and prove **P!=NP** as a **corollary**
+* Open question: prove an exponential lower bound for the time taken to salve a hard problem, which has efficiently verifiable solution
+** it would shift form a computation securitu **assumption** to a theorem
+** ... and prove **P!=NP** as a **corollary**
 
 
 ### Outline of te method
@@ -106,21 +106,21 @@ Insert image
 
 ### Motivation and assumption
 
-- We want to use a finite-length they and a Vernam cipher
-    - We somehow need to "expand" the key
-- We assume that the attacker can only perform poly(lambda) computation
+* We want to use a finite-length they and a Vernam cipher
+** We somehow need to "expand" the key
+* We assume that the attacker can only perform poly(lambda) computation
 
 #### Definition
 
 A CSPRNG is a deterministic funtion PRNG:    whose ouptut cannot be distinguished from an uniform random sampling od .... I il the CSPRNG **stretch**
 
-### CSPRNGs in prqctive
+### CSPRNGs in practice
 
 #### Existence
 
-- In practice we have only candidte CSPRINGs
-    - We have no **proof that a function PRNG exists**
-    - Proving that a CSPRNG exists inmplies directly P != NP
+* In practice we have only candidte CSPRINGs
+** We have no **proof that a function PRNG exists**
+** Proving that a CSPRNG exists inmplies directly P != NP
 
 
 
@@ -138,4 +138,4 @@ Exist something in cryptography that is a phase 3 but slow, 1 Kb/s.
 
 We simplify the problem to find a solution
 
-- It is a bijective function
+* It is a bijective function
