@@ -1,0 +1,94 @@
+== Exercise
+
+# Cleaning rooms robots
+
+* Connected to the internet
+* Store data somewhere else
+
+## Assets
+
+What are the assets that we want to prevent/secure.
+What is valuable for the company.
+
+* Private data (mapping of the house)
+* Robot
+* Company reputation
+
+(Remote control,if someone can control the robot by remote, the assets is more likely to be the robots)
+
+## Threats + Threat Agents
+
+* Data Breach => Cyberattacks
+** Phishing
+* Denial of Service => Competitor
+** Remote server
+*** Overlord with request => Server Down
+
+# Self-Driving Cars Taxi
+
+* Connected to internet 
+
+## Assets
+
+* The car
+* Safety **within**
+* Safety **outside**
+* Personal data (her location)
+** Depends on how the system is implemented
+* Company reputation
+
+
+## Threats
+
+* Remote control ( implies data breach)
+* CAN bus attack
+* Mislocation of signals
+
+# Home Assistant for Smart Home
+
+* Connected to internet
+* Connected to cloud account
+* Always Listening (for a special account)
+
+## Assets
+
+* Personal Data
+* People Safety
+* Cloud account
+** Depends, if its the same company then it's an asset
+** If it another company, then it's the assets of the other company
+* House safety
+
+## Attack Surfaces
+
+* Network Communication
+* Microphone interface
+* Cloud/Internet Interactions
+* Physical access
+
+Internet Interactions attack is the most likely to happen
+
+# Tracking Object Device
+
+* Bluetooth Low Energy
+* Paired with "Find my phone"
+
+## Assets
+
+* Physical object tracked
+* Users Location
+* User Iphone
+
+## Threats
+
+* Unauthorized user track
+* Unauthorized object track
+* Denial of Service (overload bluetooth)
+* Misdirecting user to rob
+
+### Prevents
+
+How can this treats be prevent
+
+* Authentication/Encryption communication
+* 

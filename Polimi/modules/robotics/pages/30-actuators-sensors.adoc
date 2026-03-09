@@ -1,0 +1,115 @@
+== CM2
+
+# Sensors and Actuators
+
+## What does it make an autonomous robot ?
+
+Sensors perceive:
+
+* Internal state of the robot
+** robots speed
+** battery level sensor
+** acceleration
+** inclination
+* External state of the environment
+** Camera perceiving the environment
+** LIDAR
+
+Effectors modify the environment state
+
+* Match the robot tasks
+** wheels
+** legs
+** grippers
+
+Actuators enable effectors to act. Is a device that moves an effector
+
+* passive acutation
+* motor of various types
+
+### Type of Actuators 
+
+* **Electric motors**
+
+Mostly use in lot of situation. Use in linear motion
+
+* **Hydraulics**
+
+Rotating motion
+
+* **Pneumatics**
+
+Artificial muscles
+
+* **Photo-reactive materials**
+* **Chemically reactive materials**
+* **Thermally reactive materials**
+* **Piezoelectric materials**
+
+Usually, only the first three are used on robotics. The other don't have the strengh to be torn.
+
+### Most popular Actuators
+
+First robots used hydraulic and pneumatic actuators
+
+* Hydraulic actuators are epensive, weighing, and hard to maintain (big robots)
+* Pneumatic actuators are used for stop-to-stop applications such as pick-and-place (fast actuation)
+
+
+Nowadayx most common actuators are electrical motors
+
+* Each join has usually its own motor (and controller)
+* High speed motors are reduced by (elastic) gearing
+* They need internal sensors to be controlled
+* Stepper motors do not need internal snesors, but when an error occurs their position is unknown
+
+#### DC Motors
+
+Direct Current (DC) motors
+
+* Convert electrical energu in to mechanical energy
+* Small, cheap, reasonably efficient, easy to use
+
+#### DC Motors: Brushed and Brushless Motors
+
+Brushes used to change moagnitic polarity, the're cheap but
+
+* Brushes eventually wear out
+* Brushes make noise
+* Limit the maximum speed
+* Hard to cool
+* Limit the number of poles
+
+
+Brushless motors overcome these problems but they are more expensive
+
+* Brushes are replaced by computer
+* Permanent magnets on the rotor
+* Electromagnets on the stator
+
+
+#### Stepper Motors
+
+A **stepper motors** is a brushless, synchronous electric motor thath converts digital pulses into mechanical shift rotations
+
+* Rotation angle proportional to input pulse
+* Foll torque at standstill
+* Precise positioning and repeatability
+* Very reliable
+* Wide range of rotational sppeds
+
+Usually used in printers
+
+#### Servo Motors
+
+**Servo** specialized motors that can move their shaft to a specific position
+
+* used in hoby radio control applications
+* Measure their own position and compensate for external loads when corresponding to a control signal
+
+Servo motors are build from DC motors by adding
+
+* Gear reduction
+* Position sensor
+* Control electronics
+
