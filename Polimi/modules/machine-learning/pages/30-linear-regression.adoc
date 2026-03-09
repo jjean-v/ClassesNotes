@@ -144,3 +144,39 @@ image::ml-multiple-outputs.png[]
 
 ** We assumed a linear model for y(x,w)
 ** We assumed 𝜖 ∼ 𝒩(0, 𝜎^2^)
+
+* Product of the linear Model
+* Pass to the log to have a sum
+* Derivate to find the optimization problem, and we have ...
+
+    The OLS
+
+## Bayesian Linear Regression
+
+### Bayesian approach
+
+. We formulate our kowledge about the world in a **probabilisic way**:
+.. We define the **model** that expresses our knowlesge qualitatively
+.. Our model will have some **unknown** parameters
+.. We capture our **assumptions** about unknown parameters with the **prior distribution** over those parameters before seeing the data
+. We observe the **data**
+. We compute the posterior probability distribution for the parameters, given observed data
+
+    p(parameters|data) = (p(data|parameters) * p(parameters)) / p(data)
+
+. We use the posterior distribution to:
+.. Make prediction by averaging over the posterior distribution
+.. Examine/Account for uncertainty in the parameters values
+.. Make decisions by minimizing expected posterior loss
+
+### Parameter Posterior Distribution
+
+* The **posterior distribution** for the model parameters can be found by combining the prior with the likelihood for the parameters given data
+
+    p(w|D) = (p(D|w) * p(w)) / p(D)
+
+** **p(w) is the prior** probability over the parameter - what we know before observing the data
+** **p(D|w) is the likelihood** - the probability of observing the data (D) given some values of the parameters (w)
+** **p(D) is the marginal likelihood** and acts as **normalizing constant** 
+** **p(w|D) is the posterior** probability of parameters w given training data
+** The most valuable value of **w** given the data will be the mode of the posterior, also kwnow as **maximum of posteriori** (MAP)
