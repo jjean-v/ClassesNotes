@@ -2,3 +2,4 @@
 ** xref:0-presentation.adoc[Presentation]
 ** xref:10-introduction.adoc[Introduction]
 ** xref:20-cryptographie.adoc[Cryptography]
+** xref:30-practical-exercise.adoc[Exercise]
