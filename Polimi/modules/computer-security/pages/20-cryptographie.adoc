@@ -110,18 +110,18 @@ Insert image
 ** We somehow need to "expand" the key
 * We assume that the attacker can only perform poly(lambda) computation
 
+### Cryptographically Safe Pseudorandom Number Generators
+
 #### Definition
 
-A CSPRNG is a deterministic funtion PRNG:    whose ouptut cannot be distinguished from an uniform random sampling od .... I il the CSPRNG **stretch**
+    A CSPRNG is a deterministic function prng: {0, 1}^λ^ → {0, 1}
+    ^λ+l^ whose output cannot be distinguished from an uniform random sampling of {0, 1}^λ+l^ in O(poly(λ)). l is the CSPRNG stretch.
 
 ### CSPRNGs in practice
 
-#### Existence
-
-* In practice we have only candidte CSPRINGs
-** We have no **proof that a function PRNG exists**
-** Proving that a CSPRNG exists inmplies directly P != NP
-
+* In practice, we have only candidate CSPRNGs
+** We have no proof that a function prng exists
+** Proving that a CSPRNG exists implies directly P =! NP
 
 
 #### How to build a CSPRNG
