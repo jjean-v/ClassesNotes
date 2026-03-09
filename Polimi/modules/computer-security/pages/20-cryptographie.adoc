@@ -5,7 +5,7 @@
 The study of techniques to allow secure communciation and datea storafe in presence of attackers
 
 - Confidentiality: data can be accessed only by chosen entities
-- INtegrity/freshness: detect/prevent tampering or replays
+- Integrity/freshness: detect/prevent tampering or replays
 - Aythenticity: data and their origin are certified
 - Non-repudiation: data creator cannot repudiate created data
 - Advanced features: proofs of knowledge/computation
