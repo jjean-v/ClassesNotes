@@ -5,8 +5,9 @@
 rm -rf build/
 
 # Build the site
-podman run -itv $CLASSES_NOTES_PATH:/antora antora-image:latest
+sudo docker run -itv $CLASSES_NOTES_PATH:/antora antora-image:latest
 
+sudo chown -R $USER:$USER build/
 # Go to build directory
 cd build/site
 
