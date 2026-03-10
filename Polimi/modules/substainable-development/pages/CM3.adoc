@@ -1,0 +1,335 @@
+== CM3
+
+# Environment Substainability
+
+====
+Read the paper Planer Boundaries
+====
+
+## The ecological footprint
+
+Is a substainable indicator that measures:
+
+* The amount of biologically productive land and sea area required to provide the resources a population consumes and to absorb the waste it generates, especially CO₂ emissions.
+* It is expressed in **global hectares (gha)**, a standardized
+unit that represents one hectare of world-average
+biological productivity
+
+The Ecological Footprins compares:
+
+* **Human demand**
+* **Earth's Supply capacity**
+
+The Ecological Footprint includes six main categories:
+
+* Carbon footprint (largest component) – forest area needed to absorb CO₂ emissions
+* Cropland – food and fiber production
+* Grazing land – livestock production
+* Fishing grounds – marine resource extraction
+* Forest products – timber and wood use
+* Built-up land – urban infrastructure
+
+Global Situation - 2025
+
+* Average global footprint per person ≈ 2.7–2.8 gha
+* Available biocapacity per person ≈ 1.6 gha
+
+## Planet Boundaries
+
+* The Planetary Boundaries framework defines a
+safe operating space for humanity within which
+Earth-system processes remain stable, similar to
+Holocene conditions.
+* Crossing these boundaries increases the risk of
+nonlinear, abrupt, or irreversible environmental
+change
+
+** 2009: 7 boundaries => 3 crossed
+** 2023: 9 boundaries => 6 crossed
+
+
+### 1. CO~2~ Driven Climate change
+
+Main indicator:
+
+* Atmospheric CO₂ concentration (ppm)
+* Radiative forcing (W/m~2~)
+
+Boundary value:
+
+* CO₂ < 350 ppm
+* Radiative forcing < +1 W/m~2~
+
+Main causes:
+
+* Fossil fuel combustion
+* Deforestation
+* Industrial processes
+
+Main effects:
+
+* Ice sheet instability
+* Sea-level rise
+* Extreme weather intensification
+* Climate tipping elements
+
+### 2. Ocean identifications
+
+Main indicator:
+*
+* Aragonite saturation state (Ωarag)
+
+Boundary value:
+
+* ≥ 80% of pre-industrial level
+
+Main causes:
+
+* CO₂ absorption by oceans
+
+Main effects:
+
+* Coral reef degradation
+* Shell-forming organism collapse
+* Fisheries disruption
+
+When CO~2~dissolves in seawater
+
+* Carbon dioxide reacts with water to form **carbonic acid H~2~C0~3~**
+
+Consequences:
+
+* Lower Seawater **pH**
+* Reduce the concentration of **carbonates ions**
+
+### 3. Ozone Depletion
+
+Main indicator:
+
+* Ozone concentration (Dobson Units)
+
+Boundary value:
+
+* < 5% reduction from pre-industrial levels
+
+Main causes:
+
+* CFCs and halogenated compounds
+
+Main effects:
+
+* Increased UV radiation
+* Human health risks
+* sEcosystem damage
+
+### 4. Excessive flows of nitrogen and phosphorous
+
+#### Nitrogen Cycle
+
+Main indicator:
+
+* Industrial & agricultural fixation of N₂ (Tg N/year)
+
+Boundary value:
+
+* 35 Tg N/year
+
+Main causes:
+
+* Synthetic fertilizers
+
+Intensive agriculture
+
+* Fossil fuel combustion
+
+Main effects:
+
+* Eutrophication (Over-production of algue)
+* Dead zones
+* Greenhouse gas emissions (N₂O)
+* Soil acidification
+
+#### Phosphorous Cycle
+
+Main indicator:
+
+* Phosphorus inflow to oceans (relative to natural background)
+
+Boundary value:
+
+* < 10× natural background weathering
+
+Main causes:
+
+* Fertilizer runoff
+* Wastewater discharge
+* Soil erosion
+
+Main effects:
+
+* Ocean anoxia
+* Marine ecosystem collapse
+* •Harmful algal blooms
+
+Solutions:
+
+* Find more eco-friendly fertilizer
+* Use a different way of using the fertilizer
+** For now they are spraying, more is better
+** Different way, may be more efficient and needs less fertilize for same performance
+
+### 5. Fresh Water Crisis
+
+* 10% for domestic use
+* 20% for industry
+* 70% for agriculture
+
+### 6. Land Use
+
+Main indicator: 
+
+* % of global ice-free land converted to cropland
+
+Boundary value:
+
+* ≤ 15%
+
+Main causes:
+
+* Agricultural expansion •Urbanization •Deforestation
+
+Main effects: 
+
+* Biodiversity loss 
+* Climate feedback disruption
+* Altered hydrological cycles
+
+
+Tropical Vegetation is very important because they have around 50% more oxygen absorption than the European vegetation kind or others
+
+### 7. Loss of Biodiversity
+
+Main indicator:
+
+*Extinction rate (extinctions per million species per year, E/MSY)
+
+Boundary value:
+
+* < 10 E/MSY 
+
+Main causes:
+
+* Land-use change
+* Overexploitation
+* Pollution
+* Climate change
+
+Main effects:
+
+* Reduced ecosystem resilience
+* Loss of ecosystem services
+* Food system instability
+
+### 8. Aerosol
+
+### 9. Chemical Pollution
+
+Main indicator:
+
+* No globally quantified boundary yet
+
+Main causes:
+
+* Persistent organic pollutants
+* Plastics
+* Heavy metals
+* Atmospheric particulates
+
+Main effects:
+
+* Toxicity
+* Endocrine disruption
+* Climate interactions
+* Ecosystem instability
+
+# Global Energy Challenge: SDG 7
+
+## Energy Management
+
+A sustainable energy system must provide
+
+*  Economics
+**massive financial support are not sustainable in the long run
+* Environmental Attention
+** massive use of fossil fuel are not sustainable
+* Social Care
+** traditional biomass in low efficient devices is not sustainable
+
+### Thermodynamics Foundation
+
+We can't have the equal amount energy (or more), in input and ouput
+
+### Goals
+
+* Use less energy
+* Produce energy that doesn't damage environment
+* Increase efficiency
+
+
+**The Paris Agreement's aim** 
+
+### Economic Dimension 
+
+* A better access to energy allows, for a country, an augmentation of the GNI per capita.
+* For high income country, once we reach a certain treshold (a buffer) of energy use, if we start consuming more, this is not creating a linear increase of econmical condition (GNI).
+=> After a certain treshold I'm wasting energy
+
+* Even more relevant with the HDI
+
+**Energy is a trigger of development** 
+
+
+* As responsible citizens, innovative engineers and scientists, we must place the Energy-Development nexus at the heart of every action we take. 
+* A sustainable future depends on our ability to balance three key pillars:
+** **Sustainability** – Ensuring the long-term health of our planet through clean energy solutions and responsible resource management.
+** **Security** – Guaranteeing stable, resilient, and reliable energy systems to support communities and industries worldwide.
+** **Affordability** – Making energy accessible and cost-effective for all, fostering economic growth and social equity.
+*This vision drives our commitment to shaping a better, more balanced future for
+generations to come.
+
+### Energy Transition
+
+**80% of the energy is produced by fossil fuels**
+
+## Where we are now
+
+In the OECD the energy comsuption increase much less
+
+* Population grow rate is lower
+* Industrial development is lower, and it moves from this country
+* Efficiency is higher thant the average in the world
+** Coal infrastructures efficiency is around 30%
+** Energy transportation loss is around 20 - 5 % (can be 50% in some countries)
+
+* Geographical distribution moves from OECD to Asian country, especially China
+** We can assume that OECD just export their production to asian countries
+
+
+### RES Potential
+
+**Supply Factor** 
+
+The Real time when the productions is working
+
+* Nuclear 90%
+* Oil Coal: Works 30% of the time
+* Solar: 20%
+* Wind 30-40 %
+
+
+We are moving the dependencies from energy fossiles for the dependency of the materials ressources for producing local energy
+====
+Read the Slides
+====
+
+
