@@ -139,3 +139,46 @@ Exist something in cryptography that is a phase 3 but slow, 1 Kb/s.
 We simplify the problem to find a solution
 
 * It is a bijective function
+
+
+## Integrity
+
+* MAC is constitued by a pair of Functions
+** COMPUTE_TG returns the tag for the input Storing
+** VERIFY_TAG returns true or false 
+* Used to preserve the integrity of the cookie
+
+
+## Cryptographic Hash
+
+
+* A cryptographic hash is a function H : {0, 1}^∗^ → {0, 1}^l^ for which the following problems are computationally hard
+.. given d = H(s) find s (1st preimage)
+.. given s, d = H(s) find r 6= s with H(r) = d (2nd preimage)
+.. find r,s;r 6= s, with H(s) = H(r) (collision)
+* Ideal behaviour of a concrete cryptographic hash:
+. finding 1st preimage takes O(2^d^) hash computations guessing s
+. finding 2nd preimage takes O(2^d^) hash comp.s guessing r
+. finding a collision takes ≈ O(2^d/2^) hash computations
+* The output bitstring of a hash is known as a digest
+
+Hashes are 3 to 2 times slower thant block cypher
+
+* SHA-2 still used but designed look alike SHA-1 which was broken
+* No reason to keep SHA-2
+* We know the specification and implementation but not the design criteria
+** We don't know if there is a faster method to decode than using brute force
+
+### Use for hash function
+
+* Store/compare hashes instead of values
+** Much faster to hash to files and compare then than to compare the files
+
+MACs
+
+* Building MACs: generate tag hashing together the message and a secret string, verify tag recomputing the same hash
+* A field-proven way of combining message and secret is HMAC
+** Standardized (RFC 2104, NIST FIPS 198)
+** Uses a generic hash function as a plug-in, combination denoted as HMAC-hash name
+** Just need the first preimage, not the collision so SHA1 is secure for MAC
+***  HMAC-SHA1 (!), HMAC-SHA2 and HMAC-SHA3 are ok

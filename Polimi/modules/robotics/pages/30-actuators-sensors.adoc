@@ -292,3 +292,40 @@ Infrared sensors are relatively cheap and robust but ...
 
 * Have fixed ranges / opening angles (requires proper selection)
 * May suffer reflections ... sometimes
+
+#### Kinect
+
+Kinect is a motion sensing input device built by Microsoft (Primesense) for Xbox 360
+
+* 3D scanner
+** Infrared projector
+** Infrared camera (11-bit 640x480)
+** Range 1.2 – 3.5 m (up to 0.7-6 m)
+** Angular field of view: 57° h, 43° v
+** 30Hz 8-bit RGB camera (640x480)
+
+#### Time-of-flight camera
+
+
+3D time-of-flight (TOF) cameras
+
+* Illuminate the scene with a modulated light source and observe reflected light
+* Phase shift between illumination and reflection is translated to distance
+
+Some issues exist with these sensors
+
+* Illumination is from a solid-state laser or a near-infrared (~850nm) LED
+* An imaging sensor receives the lightand converts the photonic energy to electrical current
+* Distance information is embedded in the reflected component. Therefore, high ambient component reduces the signal to noise ratio (SNR)
+
+
+#### Laser Range Finder
+
+Lasers are definitely more accurate sensors
+
+* Up to 360° horizontal plane field of view
+* 1 to 128 planes scanned
+* 10-75 scans/second
+* <1cm range resolution
+* Max range up to 300 m
+* Problems only with mirrors, glass, and matte black.
