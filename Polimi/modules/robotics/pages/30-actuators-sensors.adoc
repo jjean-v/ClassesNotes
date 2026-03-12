@@ -113,3 +113,182 @@ Servo motors are build from DC motors by adding
 * Position sensor
 * Control electronics
 
+## Sensors
+
+
+Sensor allow a robot to accomplish task autonomously.
+
+Two main categories 
+
+* Internal sensors (proprioceptive)
+** Interpret the internal state of the robot
+* External sensors (exteroceptive)
+** Interpret the environment of the robot
+
+Other classification
+* Passive (measure physical property)
+** Does not need to throw energy in the environment to get information (thermometer, camera, ...)
+* Active sensors (emitter + detector)
+** Need to throw energy in the environment to get information (radar, )
+
+Sensing is the traduction of what you want to do into a number, Interpreter is what you do with this number. This is called **Perception**
+
+## Passive Sensor
+
+
+==== 
+ ? => Sensor => Number => Algorithm => Info/Data
+====
+
+Our goal is to be able to position the robot
+
+### Position Sensors (outdoor)
+
+Outdoor position can be measure by a Global Navigation Satellite System
+
+* Several constellations exist (GPS, GLONASS, Beidou, Galileo, …)
+
+Global Positioning System (GPS)
+
+* 24 satellites orbit the Earth twice a day
+* They synchronously emit location and time
+* Receiver compares transmitted and arrival times
+* At least 4 sensors must be perceived
+* Accuracy is about 2.5m@2Hz (20cm DGPS, 2cm RTK)
+
+Several issues
+
+* Do not work indoor, underwater, or in urban canyon
+* Need line of sight reception
+* Suffer multiple paths and reflections
+
+### Encoders
+
+An enconder converts motor/joint rotary motion or position into electronic pulses.
+
+We must find a solution to transform velocity into data, that's the role of **Encoders**
+
+
+Linear encoders
+
+* Consist of a long linear read track, together with a compact read head
+
+Rotary encoders
+
+* Both for rotary and linear motion (in conjunction with some mechanism) convert rotary motion into electrical signals
+** Wrap a stride around the motor, to know the velocity of the motor
+* They can be incremental or absolute
+
+
+#### Incremental rotary encoders
+
+It is based on the photoelectric principle
+
+* A disk with two traces (or sensors) where transparent and opaque zones alternate
+* The two traces allows to identify rotation direction and increases resolution (quadrature)
+
+**Problem**: No idea if you are turning clock-wise or not  
+
+Quadrature technique
+
+* The two signals are shifted by ¼ step
+* N, is the number of steps, i.e., the number of light/dark zones, per turn
+* Resolution is 360°/4N
+** CCW: 1 1 is followed by 1 0
+** CW: 1 1 is followed by 0 1
+
+
+Widely used for robots, not for cars
+
+Less information when it's moving slow, and possible overflow when to fast
+
+#### Absolute rotary encoders
+
+The disk econdes a position
+* Transparent and opaque areas on concentric rings
+* For an N-bit word there are N rings
+* Absolute resolution: 360°/2N
+* In robotic applications at least 12 rings are used (360°/4096)
+* Binary codes with single variations, i.e., Gray code, are used to avoid abiguities
+
+In reality the disk or unordored, this is made to minimize the error if a there is a bit error
+
+### Inertial sensor
+
+Gyroscopes
+
+* Angular velocities
+
+Accelerometers
+
+* Linear accelerations
+* Gravitational vector
+
+Magnetometers/compass
+
+* Earth magnetic field vector
+* But highly affected with metal materials and electronic 
+** Very bad in robots
+
+## Active Sensor
+
+### Distance perception
+
+#### Time-of-flight telemeter
+
+It measures the time between the emitter produces the signal and the detector receives its reflection
+
+*  Distance covered by the signal is 2d
+* Time of flight is ΔT = 2d/c
+
+Acoustic waves are used (although light is possible)
+
+* Low speed: v=340 m/s
+* Low directionality: 20 – 40°
+** Uncertainty on where is the obstacle, not very precise
+* Polaroid ultrasonic sensors (sonar)
+** range 0.3 – 10m
+** accuracy 0.025m
+** cone opening 30°
+** frequency 50 KHz
+
+The signal is largely affected by noise with significant reflections …
+
+**Issues**
+
+The range should be chosen according to the application. They do not work in all conditions
+
+* Sampling frequency trade-off
+* Reflections against walls
+* Small objects
+* Soft objects
+
+image::robotics-sensor.png[]
+
+Rooms may look larger than expected at corners!
+
+#### Reflective Optosensors
+
+Reflective optosensors are active sensors (e.g., SHARP IR Sensors)
+
+* Emitter: a source of light, e.g., LED (light emitter diode) or IR (infra red)
+* Detector: a light detector, e.g., photodiode or phototransistor
+
+It uses triangulation to compute distance
+
+* Emitter casts a beam of light on the surface
+* The detector measures the angle corresponding to the maximum intensity of returned light
+* Being s the distance between the emitter and the detector
+** 𝑑 = 𝑠 ⋅ tan alpha
+
+**Issues**
+
+Infrared sensors are relatively cheap and robust but ...
+
+* Non linear characteristics which need to be calibrated
+* Have an ambiguity for short range
+** We don't know if it's at 3cm or 20cm
+** A solution is to place the sensor in the robot
+
+* Have fixed ranges / opening angles (requires proper selection)
+* May suffer reflections ... sometimes
