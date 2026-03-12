@@ -1,0 +1,55 @@
+== Localization
+
+# Mapping
+
+## Where am I ?
+
+To perform their tasks, autonomous robots and unmanned vehicles need
+
+* To know where they are (e.g., Global Positioning System)
+* To know the environment map (e.g., Geographical Institutes Maps)
+
+These are not always possible or reliable
+
+* GNSS are not always reliable/available
+* Not all places have been mapped (your room)
+* Environment changes dynamically
+* Maps need to be updated
+
+### Localization with Known Map 
+
+You move always with an uncertainty, you are never 100% sure, precisely, where you are.
+
+The position of your robot can be measure in a probabilistic way, measuring his standard deviation
+
+### Localization with Known Poses
+
+This time your measure your position by using landmark.
+If you have two independant measure, the incertitude decrease 
+
+### Simultaneous Localization and Mapping (SLAM)
+
+You start in a new environment and you don't know anything
+
+. Measure your landmark => Noise
+. You move => Incertainty of the robot
+. You Measure a new landmark => Noise + Unvertainty of the robot
+
+This increase unless if you see a landmark you've already seen => It's uncertainty of the landmark reduce => The uncertainty of the robot wil reduce => and so on
+
+If you keep measuring for an long period of time, the uncertainty of the robot and the robot will shrink to the true value
+
+
+#### Dynamic Bayesian Networs and (full) Slam
+
+Direct acyclic graph
+
+to~1~ => Pose of the robot at the time 1 (rv)
+L~1~ => Pose of the Landmark 1 (rv)
+z~x~ => Measurement from the to~1~ and L~1~ (known value)
+
+u~x~ => Measurement of the robot at the time x (known value)
+to~2~ => Pose of the robot at the time 2. Probability using to~1~ and u~2~
+
+Probabilistic distribution
+
