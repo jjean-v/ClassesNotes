@@ -1,0 +1,141 @@
+== CM4
+
+# Water management & desalinisation plants : drivers and current context (17/03/2026)
+
+Florian & Daniel de Aachen
+
+SDG 6 : water availability for the world
+
+## Water Management
+
+* Water management is important to attain this goal (reduce risks & balance water supply)  
+* **Natural factors :** droughts, climate variability, hydrological extremes   
+* **Human related factors :** water scarcity (human drive), population growth, water demand, water management practices
+
+**Drought :** prolonged period of below-average precipitation (natural hazard) that leads to water shortages affecting ecosystems, agriculture and human activities (also evaporation because of climate change)
+
+* It may happen naturally, but it’s important when it affects us  
+* El Nino  
+* It may happen because of human activities too
+
+**Key characteristics :**
+
+* hydrological extremes or water-related risks  
+* Reduce rainfall  
+* Decreased soil moisture  
+* Reduced river and groundwater
+
+**Main types of Drought :**
+
+* Meteorological drought : lack of precipitation compared to average  
+* Agricultural drought : soil moisture becomes insufficient for crops  
+* Hydrological drought : reduced river flows, reservoirs and groundwater levels  
+* Socioeconomic drought : water shortage affect society and economic activities
+
+## Water management **Strategies** for Drought and Water Scarcity
+
+| Demand Management | Supply Augmentation | Water Reuse & Recycling | Governance & Planning |
+| ----- | ----- | ----- | ----- |
+| Efficiency of water use Leak reduction Sustainable irrigation | Reservoirs & storage Groundwater management Desalination | Wastewater reuse Industrial recycling Urban water reuse | Water policies Drought |
+
+**Desalination plants** as a solution, sea water to get more water (supply augmentation)
+
+* Middle East, 42% of the world’s global desalination capacity  
+* Africa project : \+79% of desalination capacity in the coming years  
+* Desanilation technologies are in constant improvement  
+* Attacks on desalination plants in the Middle East  
+* This process is drought independent
+
+## Introduction to Seawater Desalination
+
+Water is a **human right** (water is life) : 
+
+* good hygiene (recall Covid)  
+* drinking   
+* food production
+
+2010 : UN recognized water as a human right
+
+In 2024, 2.2 billion people did not have access to **safely managed drinking water** (not available when needed). 3.4 billion people don’t have access to **safely managed sanitation facilities** exclusively for their households 
+
+Increasing of the Water Demand, because of increase of population (more than 8 billion people)
+
+Water Scarcity : Demand increase but not the supply (Water Scarcity when below 1000 m^3/yr per capita), 3.6 billion people in water scarcity
+
+Renewable / Non renewable water resources (Canada 100% renewable water, Middle East and Nord Africa struggle)
+
+### Earth’s water
+
+* 3% of fresh water  
+** 30% ground water  
+** 68% Ice and Snow  
+* 97% Salt water
+
+**Desanilation** is the process of removing salt and other minerals from water  
+**Inputs** of desalination plants : 
+
+* Energy  
+* Feed (saline water) 2.5m^3^
+
+**Outputs** : 
+
+* Fresh water 1m^3^  
+* Retentate (Brine) 1.5m^3^
+
+We measure the efficiency with the **recovery rate (RR).**
+
+Salinity is defined as the grams of salt per 1000 grams of water, one gram of salt per 1000 grams of water is defined as one PSU, 35 PSU on average.
+
+0-1000ppm: Fresh Water  
+1000-3500ppm: Brackish  
+35000-50000ppm: Sea Water  
+50000- \+: Brine
+
+### Brief history
+
+* 300 BC : Aristotle discovered the phenomenon  
+* Around 1600 : drinking water production during navigation explorations through distillation (boiling sea water and collecting fresh water)  
+* 1881 : World’s first commercial traditional desalination plant “Tigne” was built in Sleim, Malta  
+* 1928: First distillation plant was built in curacao, Netherland with a capacity of 60m3/d  
+* 1930 : first desalination plants built in the Middle East
+
+### How the Desalination water is used
+
+* 61% Municipal  
+* 30% Industry  
+* 5% Power  
+* 1.76% Irrigation (it’s 70% of the world’s fresh water for agriculture, desanilated water is too expensive, not competitive)
+
+MSF-RO hybrid desalination-power-plant in Ras Al Khair, Saudi Arabia has a capacity of 1 036 000 m3/day.
+
+### Different technologies
+
+* Thermal desalination  
+** Multi-Effect Distillation (**MED**) 8%  
+** Multi-stage flash (**MSF**) 26%  
+** Single effect evaporation  
+** …  
+* Membrane processes  
+** Reverse Osmosis 60%  
+** Nanofiltration  
+** Electrodialysis  
+** Membrane Distillation
+
+**MSF- Thermal**  
+
+Sea water pump => Heated up => Goes to the chamber => Evaporate goes to the filter system => Get cooler, condensate  
+Repeated multiple times until you have freshwater and Brime
+
+**MED**  
+Similar the other way around  
+Requires a lot of energy, usually working with fossil fuels
+
+**Reverse Osmosis**  
+Opposite of Osmosis, the two concentrations tend to equalize. We reverse this process => requires a lot of electric energy for the high pressure pump  
+
+Pre-treatment => High pressure pump => Post treatment
+
+Problematic of **Brine Management**  
+
+142 000 000 m3 of brine need to be managed **every day**  
+Usually thrown in the Ocean, issue for the biodiversity in the ocean, also can reduce the RR of the plant
