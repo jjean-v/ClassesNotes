@@ -182,3 +182,112 @@ MACs
 ** Uses a generic hash function as a plug-in, combination denoted as HMAC-hash name
 ** Just need the first preimage, not the collision so SHA1 is secure for MAC
 ***  HMAC-SHA1 (!), HMAC-SHA2 and HMAC-SHA3 are ok
+
+
+### Key Encapsulation
+
+A public channel between Alice and Bob is available
+
+* For the moment, the attacker model is “eavesdrop only” Sharing a secret without agreement
+* Alice: generates a keypair (kpri, kpub), sends to Bob
+*  Bob: gets s ← {0, 1}^λ^, encrypts it with k~pub~, sends ctx to Alice
+* Alice: decrypts ctx with k~pri~, recovers s
+* Note: Bob alone decides the value of the shared secret s
+** Repeat the procedure with swapped role
+
+### Best of Both Worlds
+
+encryption schemes
+
+* Asymmetric schemes to provide key transport/agreement (cypher than agreement on the cypher)
+* Symmetric schemes to encrypt the bulk of the data
+* All modern secure transport protocols built around this idea
+
+Problem
+
+You have to be sure that the ones sending you his public key is the good person
+
+* Big risk of Man in the Midlle
+
+=> Needs of **authentication**
+
+## Authenticating data
+
+Motivations
+
+*To build a secure hybrid encryption scheme we need to be sure that the public key the sender uses is the one of the recipient
+* We’d like to be able to verify the authenticity of a piece of data without a pre-shared secret 
+
+Digital signatures
+
+* Provide strong evidence that data is bound to a specific user
+* No shared secret is needed to check (validate) the signature
+* Proper signatures cannot be repudiated by the user
+* They are asymmetric cryptographic algorithms
+** formally proven that you cannot get non repudiation otherwise
+* No Repudiation
+
+
+### Widespread Signature Schemes
+
+Rivest, Shamir, Adleman (RSA), 1977
+
+* Unique case: the same hard-to-invert function to build an asymmetric encryption scheme and a signature (different message processing!)
+* Signing definitely slower than verification (≈ 300×)
+* Standardized in NIST DSS (FIPS-184-4)
+
+Digital Signature Standard (DSA)
+
+* Derived from tweaking signature schemes by Schnorr and Elgamal
+** By The USA but they weakened it, minefield for the implementer
+** SOny case, draw a ramdom number
+*** => With two hash they can guess the key
+* Also standardized in NIST DSS (FIPS-184-4)
+* Signature and verification take roughly the same time
+
+### Digital certificates
+
+* They bind a public key to a given identity, which is:
+** for humans: an ASCII string
+** for machines: either the CNAME or IP address
+* They specify the intended use for the public key contained
+** Avoids ambiguities when a key format is ok for both an encryption and a signature algorithm
+* They contain a time interval in which they are valid
+* Most widely deployed format is described in ITU X.509
+
+
+### Certification Authorities
+
+Who signs the certificates
+
+* The certificate signer is a trusted third party, the CA
+* The CA public key is authenticated... with another certificate
+* Up to a self-signed certificate which has to be trusted a priori
+** The browser has some certificate he know he can trust
+
+
+image::cs-ca-scheme.png[]
+
+### Putting it all together
+
+image::cs-secure-communication.png[]
+
+### Direction in modern cryptography
+
+Issues to solve, features to realize
+
+* What if we have a quantum computer?
+** Some computationally hard problems are no longer hard
+*** I gave you g^a^ you give me a .-.
+** Move away from cryptosystems based on factoring/dlog
+** Alternatives available and being standardized (2022-04)
+* What if we want to compute on encrypted data?
+** Yes, but it’s moderately-to-horribly inefficient
+* What if the attacker has physical access to the device computing the cipher (or some way of remotely measure it)
+** Take into account side channel information in the attacker mode
+*** Infrared light emating from the transistor of your chip
+* We still can do encryption and decryption smthng
+** Just increase the number of bits
+
+* For digital signature you can just pick two of the three
+** Fast, Short key, short ...

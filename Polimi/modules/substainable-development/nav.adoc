@@ -2,3 +2,5 @@
 ** xref:index.adoc[Presentation]
 ** xref:CM1.adoc[CM1]
 ** xref:CM2.adoc[CM2]
+** xref:CM3.adoc[CM3]
+** xref:CM4.adoc[CM4]
