@@ -53,3 +53,156 @@ to~2~ => Pose of the robot at the time 2. Probability using to~1~ and u~2~
 
 Probabilistic distribution
 
+#### Localization with Known Map 
+
+Use a **Motion Model** Probabilistic model on how a robot move corresponding to sensor change
+
+**Odometry** Computation of the robot just by considering the action
+
+To do this, we need the **kinematics**: Description on the position of the robots, based on the action
+
+#### Wheeled Mobile Robots
+
+A robot capable of locomotion on a surface **solely through the actuation of wheel assemblies**
+mounted on the robot and in contact with the surface. A wheel assembly is a device which
+provides or allows motion between its mount and surface on which it is intended to have
+**a single point of rolling contact**.
+
+
+#### Wheel Types
+
+**Fixed**: 
+    V~w~ = W~w~* r~w~
+
+**Orientable Centered**
+
+need a motor to turn, **active** wheel. Have usually two motor, one to turn and the other to make the wheel spin
+
+
+
+**Caster omnidirectional**
+
+Don't need a motor, just to push a force orthogonal to the whell, *passive* wheel. Used to provde support
+
+Used in the shopping car
+
+**Swedish or Meccanum**
+
+Made of rolls, can translate, they can turn
+
+#### Mobile Robots Types/Kinematics
+
+Roombat
+Two wheels (differential drive)
+
+* Simple model
+* Suffers terrain irregularities
+* Cannot translate laterally
+
+Tracks
+
+* Suited for outdoor terrains
+* Not accurate movements (with rotations)
+* Complex model
+* Cannot translate laterally
+
+Omnidirectional (synchro drive)
+
+* Can exploit all degrees of freedom (3DoF)
+* Complex model
+* Complex structure
+
+#### Definitions 
+
+
+**Locomotion**: the process of causing an autonomous robot to move
+
+* To produce motion, forces must be applied to the vehicle
+
+**Dynamics**: the study of motion in which forces are modeled
+
+** Includes the energies and speeds associated with these motions
+
+**Kinematics**: study of motion without considering forces that affect if
+
+* Deals with the geometric relationships that govern the system
+* Deals with the relationship between control parameters and the behavior of a system in state space
+
+
+#### Kinematics
+
+image::robotics-kinematics.png[]
+
+Direct kinematics
+
+* Given control parameters, e.g., wheels and velocities, and a time of movement t, find the pose (x, y, &#x03B8;) reached by the robot
+
+Inverse kinematics
+
+* Given the final pose (x, y, &#x03B8;) find control parameters to move there in a given time t
+
+#### Wheeled robot assumptions
+
+. Robot made only by rigid parts
+. Each wheel may have a 1 link for steering
+. Steering axes are orthogonal to soil
+. Pure rolling of the wheel about its axis (x axis)
+. No translation of the wheel
+
+
+====
+Wheel parameters:
+r = radius
+v = linear velocity
+&#x03C9; = angular velocity
+====
+
+#### Instantaneous Center of Curvature (or Rotation)
+
+For a robot to move on the plane (3DoF), without slipage, wheels axis have to intersect in a single point named Instantaneous Center of Curvature (ICC) or Instantaneous Center of Rotation (ICR)
+
+Doesn't work with track, because we got a line of point, more complex
+
+image::robotics-icc.png[]
+
+====
+
+**Convention**
+
+The angular velocity is measure using the z axis
+
+Positive angular velocity, the robot is turning counter clockwise
+
+====
+
+
+#### Differential Drive Kinematics
+
+Right and left wheels follow a circular path with &#x03C9; angular velocity and different curvature radius
+
+====
+&#x03C9; (R + L/2) = V~R~
+
+&#x03C9; (R - L/2) = V~L~
+====
+
+Given VR and VL you can find &#x03C9; or V solving for R and equating
+
+====
+&#x03C9; =( V~R~ - V~L~)/ L
+
+V = (V~R~ + V~L~)/2
+====
+
+Similarly you can find R solving for  and equating
+====
+R = L/2 (V~R~ + V~L~) / (V~R~ -V~L~)
+====
+
+#### Differential Dirve ICC
+
+Wheels move around ICC on a circumference with istantaneous radius R and angular velocity &#x03C9;
+
+====
+CC = (x+R cos(&#x03B8; +/2), y+R sin(&#x03B8; +/2))= (x – R sin(&#x03B8;), y + R cos(&#x03B8;))
+====

@@ -3,3 +3,4 @@
 ** xref:10-robotic-middlewares.adoc[Middlewares]
 ** xref:20-robotics.adoc[Robotics]
 ** xref:30-actuators-sensors.adoc[Actuators and Sensors]
+** xref:40-localization.adoc[Localization]
