@@ -129,7 +129,7 @@ Omnidirectional (synchro drive)
 * Deals with the relationship between control parameters and the behavior of a system in state space
 
 
-#### Kinematics
+### Kinematics
 
 image::robotics-kinematics.png[]
 
@@ -206,3 +206,59 @@ Wheels move around ICC on a circumference with istantaneous radius R and angular
 ====
 CC = (x+R cos(&#x03B8; +/2), y+R sin(&#x03B8; +/2))= (x – R sin(&#x03B8;), y + R cos(&#x03B8;))
 ====
+
+
+In pratique Odometry is nice, but not the most used, works fine for short distance, but the longer it is, the incertitude keeps increasing.
+
+### Inverse Kinematics
+
+Given a desired position or velocity, what can we do to achieve it?
+
+Finding “some” solution is not hard, but finding the “best” solution can be very difficult:
+
+* Shortest time
+* Most energy efficient
+* Smoothest velocity profiles
+
+Moreover if we have non holonomic constrains and only two control variables; we cannot directly reach any of the 3DoF final positions ...
+
+#### Differential drive inverse kinematics
+
+
+Decompose the problem and control only few DoF at the time
+
+* 1. Turn so that the wheels are parallel to the line between the original and final position of robot origin
+
+====
+-V~L~(t) = V~R~(t) = V~max~
+====
+
+* 2. Drive straight until the robot’s origin coincides with destination
+
+====
+V~L~(t) = V~R~(t) = V~max~
+====
+
+* 3. Rotate again in to achieve the desired final orientation
+
+====
+-V~L~(t) = V~R~(t) = V~max~
+====
+
+Maybe not the best solution, but the easiest one
+
+### Synchronous drive
+
+Complex mechanical robot design
+
+* (At least) 3 wheels actuated and steered
+* A motor to roll all the wheels, a second motor to rotate them
+* Wheels point in the same direction
+* It is possible to control directly &#x03B8; with an additional actuator
+
+Robot control variables
+
+* Linear velocity v(t)
+* Angular velocity &#x03C9;(t)
+
+Its ICC is always at the infinite and the robot is non holonomic (it can only translate freely)
