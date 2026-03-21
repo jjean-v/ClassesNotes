@@ -262,3 +262,13 @@ Robot control variables
 * Angular velocity &#x03C9;(t)
 
 Its ICC is always at the infinite and the robot is non holonomic (it can only translate freely)
+
+
+====
+Exam question:
+
+Give a robot and ask wich kinematic is it
+
+And compute the kinematic
+Do the derivation
+====
