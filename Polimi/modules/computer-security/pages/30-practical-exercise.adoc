@@ -92,3 +92,177 @@ How can this treats be prevent
 
 * Authentication/Encryption communication
 * 
+
+# Cryptography Exercice
+
+## File system
+
+You have a file system and you want to encrypt the files. You decide to do FS encryption using 
+
+* **AES-256** in **Counter Mode**
+* 1 key per FS
+* Initial Value of the Counter
+** First 16 chars of the file name
+** If not enough characters, fill up with random bits, and store in the metadata
+
+**Questions**
+
+* Does it provide confidentiality of the Data
+** Against a Passive Attacker
+** Against an Active Attacker (allow to write files in the FS, read encrypted files)
+* How do you fix it ?
+
+
+**Resolutions**
+
+If you have 2 files longer than 16 characters, can have the same first 16 characters => Same key
+
+**Passive Attacker**
+
+p = KS &#x22BB; C
+p' = KS &#x22BB; C'
+
+p &#x22BB; KS = C
+p' &#x22BB; KS = C'
+
+p &#x22BB; p &#x22BB; KS &#x22BB; KS = C &#x22BB; C'
+
+=> p &#x22BB; p' = C &#x22BB; C'
+
+You're basically getting a diff byte per bytes between the plain textes and the encrypted files
+
+Passive attacker know if the files are different
+
+**Active Attacker**
+
+You take the encrypted file, you create a new file with the same 16 first characters, and you copy the value of the encrypted files. When it will be encrypted, it will in reality decrypt the file
+
+**How to fix it**
+
+Don't hash the filename because you can have different files with the same name.
+
+Hash the path names and use it as a 'nouns' 
+
+Can I provide Integrity with this ?
+
+With bad nouns, no, I know the difference so i can restore a file to its previous version
+
+WIth proper nouns,no, you can still alter a small part of bits by doing a xor on the encrypted files, this will corrupt the file
+
+**If I want to provide integrity** => Hash of the file content
+
+
+## Password
+
+I want to make a password with SHA-3-256
+
+Instead of aksing him a good password, i ask him to choose **n** ramdom words, he picks in a dictionnary of 2^15^ words
+
+What the size of n to match the mandatory 256 bits of the protocol ?
+
+**Resolution**
+
+S = { 0, 1 }^256^
+
+H(U~S~) = log~~2~(|S|) = 256b
+
+A uniform random draw of the dictionnary, give me 
+
+H(U~D~) = 
+
+n = 256/15 = 18 words
+
+If we had to choose digit, a digit of 256b would be around 75 digits long
+
+
+## Firmal Update
+
+You have a machine with no internet connection, Air-Capped Machine
+
+To make it work, use a key, enter it and it will run the program
+
+* Want to get Integrity
+* The machine has a Time Reference
+
+**Questions**
+
+Protect Firmware Integrity, considering two cases:
+
+* Computing power is abondant
+* Computing power is scarce
+
+**Resolution**
+
+For Signature we only have two solutions, MAC and SIG
+
+MAC is symetric => less computing power => Scarce
+SIG Asymetric => more computing power => Abondant
+
+
+**SIG**
+
+I want to provide Integrity
+
+. Gen  key pair by the Manufacturer, Sign and Verify
+. Place the public key on the devices
+. At each Firm Update, Manufacturer signs update
+. Machine verifies SIG
+
+You can use time reference, if you want to handle public key expiration, with a CA for example
+
+**MAC**
+
+Will be using one key instead of a key pair
+
+. Generate Symetric Key by the manufacturer
+. Place Symetric key on the devices
+. At each Firm update, the manufacturer computes TAG
+. Machine verifies TAG
+
+If I'm an attacker i can get the symetric key, and compute update for every machines
+
+How can i mitigate this ?
+
+Use different symetric keys
+
+Place the Hash(key || Serial of the machine) = device key
+
+Machin verifies TAG and the device key
+
+## Login Form
+
+Ask for a UID and a Password
+Attacker try to guess the identifier
+
+You should'nt be able to get in with a maximum probability of 1 in 10^9^ to get in, or >120 years to get in
+
+Assuming the password is a 3 words drawn from a 2^k^ dictionnary
+
+Two mitigation ways
+
+. Limit the attempts to 10
+. For each fail attempt, do a +10 miliseconds
+
+**Resolutions**
+
+We can know the number of possible passwords
+
+(2.10^3^)^7^ => 8.10^9^
+
+1/8 .10^-9^ < 10^-9^
+
+If you have 10 attempts the probability will be slighty higher 1/8.10^8^. So no you can't use the first method
+
+
+On average you will hit the good password on the 4 billion attempts, (50% chance)
+
+sum 0,1* i =n(n+1)/2 = (4.10^9^)^2^/2 * 10^-2^ = 8.10^16^
+
+2^16^< 86450 s/day < 2^17^
+2^8^ < 365 < 2^9^
+
+2^30^ < secs in 120 years < 2^32^
+
+So it matches the 120 years
+
+
