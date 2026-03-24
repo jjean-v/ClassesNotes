@@ -1,0 +1,140 @@
+== CM5
+
+# Climate Change SDG13
+
+## Substainable Development Aspect
+
+====
+SDG13: Take urgent action to combat climate change and its impacts
+====
+
+* 13.1 Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters in all countries
+* 13.2 Integrate climate change measures into national policies, strategies and planning
+* 13.3 Improve education, awareness-raising and human and institutional capacity on climate change mitigation, adaptation, impact reduction and early warning
+
+SDG 13 – Key Updated Figures
+
+* ~1.2°C → current global temperature increase above pre-industrial levels
+* 2023 → warmest year on record
+* ~37–38 GtCO₂/year → global CO₂ emissions from energy (record high)
+* ~75% of global greenhouse gas emissions come from the energy sector
+* ~3.0°C → projected global warming under current policies
+* $100 billion/year → international climate finance target (not consistently met)
+* ~90% of natural disasters are climate-related (floods, storms, droughts)
+
+### Scientific Evidences
+
+Planet Warming => Natural Greenhouse Effect 
+Planet Warming => Greenhouse gas increase <= Human activities contribution
+
+* Future climate change depends on future emissions
+* Warming is just one part of the global issue
+
+#### Weather vs Climate
+
+
+**Weather**: State of the atmosphere in a given place and time. e.g. "Today is a hot day in London", "Today is a cold day in Nairobi“…
+
+**Climate**: Climate is the Average Weather, made by many meteorological events, on a large region. Climate warming is a global phenomenon 
+
+#### Main indicators
+
+* Global Temperature difference (since pre-industrial era)
+* Global Land-Ocean Temperature Index
+* Annual Artic Sea Ice Minimum
+* Sea Level
+
+**Warming of the climate system is unequivocal**
+
+* Independent analyses of the components of the climate system that would be expected to change in a warming world have been carried out
+* Many components of the climate system exhibit trends consistent with warming (arrow direction denotes the sign of the change)
+
+Many factors, both natural and human, affect the Earth’s energy balance:
+
+* Sun energy: variations in energy reaching Earth
+* Earth atmosphere and surface: changes in the reflectivity
+* Greenhouse effect: changes affecting the amount of heat retained by Earth’s atmosphere
+
+These factors have been responsible for Earth’s climate change many times
+
+We observe that the sun activities is not influencing the increase of the temperature
+
+Increase of some gas in the atmosphere (CH~4~, CO~2~), increase the thermal caracteristic of the atmosphere, the absorption increase, and the reflection decrease => More heat trap 
+
+
+In the past, natural CO~2~ emission was also as important as the human emission, the problem is that the human emissions odn't have a balance
+
+
+### GhGs emissions
+
+Main sources of Greenhouse Gas Emissions are from 
+
+* Energy Production & Use (CO~2~)
+* Food Production & Supply (CH~4~ and N~2~O)
+
+For the same amount of energy, the coal emission is higher than the oil emission
+
+====
+Emissions: where we are & Expected trends
+====
+
+The new policy scenarios, are taking into account, all the active policies by the country and the one that are already voted and will be implemented in the next years
+
+image::sd-emission-trend.png[]
+
+### Challenges: Adaptation and Mitigation
+
+**ADAPTATION**
+
+* Even if policies and efforts to reduce emissions prove effective, some climate change is inevitable
+* Strategies and actions to adapt to its impacts are also needed
+* Anticipate the adverse effects of climate change
+* Take appropriate action to prevent or minimize the damages or take advantage of potential opportunities
+* Plan early adaptation action to save lives and money later
+* Change living place due to hot weather, water scarcity or sea level increase
+
+**MITIGATION**
+
+* In order to stabilize GHGs concentrations in the atmosphere, emissions would need to peak and decline thereafter.
+* Mitigation efforts over the next decade will have a large impact on opportunities to achieve lower stabilization levels
+* Mitigation is needed to stabilize rising temperatures, avoid irreversible and catastrophic changes
+* Big transformation of the energy-system, a fast scale-up of mitigation action in all sectors, leading to emission reductions as soon as possible
+* Mitigate the hot weather in urban area => Vegetalize the cities
+
+====
+See video: why climate change is a threat to human right ?
+====
+
+# Nuclear Technology
+
+## Introduction
+
+### Nuclear Fission
+
+From radioactivity to transmutation:
+
+* 1895. Ionising radiation, X-rays(W. Rontgen)
+* 1896. Radioactivity of uranium (H. Becquerel)
+* 1899. Alpha and beta decay (E. Rutherford), Gamma decay (P. Villard)
+* 1917. Nuclear transmutation, 14N + α17O + p (E. Rutherford)
+
+From transmutation to nuclear fission:
+
+* 1932. Discovery of the neutron (J. Chadwick)
+* 1934. Induced radioactivity (I. Joliot-Curie, F.Joliot-Curie)
+* 1934. Neutron thermalization (E. Fermi & via Panisperna boys)
+
+**Main challenge when starting a nuclear fission is to moderate it and controle it.**
+
+From nuclear fission to nuclear energy:
+
+* 1942. Controlled nuclear chain reaction. In CP-1(Chicago Pile No.1) a controlled fission chain reaction of uranium-235 nuclei based on slowed-down (thermal) neutrons was obtained for 28 minutes
+
+
+### Nuclear Power Plant
+
+* 4.93 % world primary energy in 2020
+* 10% global electric generation in 2020
+* 17% electricity in OECD Countries (25% in EU) in 2020
+* 26% «low carbon» electricity production in 2020
+* 2653.3 TWh produced in 2021, 1.26 Gt CO2 avoided
