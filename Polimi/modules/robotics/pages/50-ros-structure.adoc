@@ -1,0 +1,120 @@
+== ROS
+
+# ROS Structure
+
+**ROS main features**
+
+* Distributed framework
+* Reuse code
+* Language independent
+* Easy testing on Real Robot & Simulation
+* Scaling
+
+**ROS Components**
+
+* File system tools
+* Building tools
+* Packages
+* Monitoring and GUIs
+* Data Logging
+
+## Nodes
+
+* Executable unit of ROS:
+** Scripts for Python
+** Compiled source code for C++
+* Process that performs computation
+* Nodes exchange information via the graph
+* Meant to operate at fine-grained scale
+* A robot system is composed by various nodes
+
+## What is DDS ?
+
+DDS = Data Distribution Service (OMG standard) used in many real-time/distributed systems.
+
+Data-centric publish/subscribe middleware
+
+Standardizes: - Discovery (who is there, what topics they offer)
+
+* Transport (UDP/TCP, shared memory, etc. depending on implementation)
+* QoS policies (reliability, history, deadlines, durability…)
+
+
+## Topics
+
+### Definition
+
+* Named channels for communication
+* Implement the publish/subscribe paradigm
+* No guarantee of delivery
+* Have a specific message type
+* Multiple nodes can publish messages on a topic 
+** Not recommended
+** We don't know where this data are coming from
+* Multiple nodes can read messages from a topic
+
+
+### Messages
+
+* Messages are exchanged on topics
+* They define the type of the topic
+* Various already available messages
+* It is possible to define new messages using a simple language
+** Not recommended
+** Use the default one, they cover almost every scenario
+* Existing message types can be used in new messages together with base types
+
+## BAGS
+
+* File format (*.bag) for storing and playing back messages
+* Primary mechanism for data logging
+* Can record anything exchanged on the ROS graph (messages, services, parameters, actions)
+* Important tool for analyzing, storing, visualizing data and testing algorithms.
+
+## ROS Command line
+
+[cols=3*,separator=¦]
+|===
+¦**Command line**
+¦**Explication**
+¦**Examples**
+¦ros2 node list
+¦List the nodes
+¦ --
+¦ros2 topic list
+¦List the topics
+¦ --
+¦ros2 run <package-name> <node-name>
+¦start the node
+¦ros2 run turtlesim turtlesim_node
+¦rqt
+¦See the graph visualization of the node interaction
+¦ rqt => .. => Graph
+¦ros2 topic info <topic-name>
+¦Retrieve the topic info
+¦ros2 topic info /turtle1/cmd_vel 
+¦ros2 topic echo <topic-name>
+¦list the information send in this topic
+¦ros2 topic echo /turtle1/pose
+|===
+
+### Bonus: tmux command line
+
+
+[cols=2*,separator=¦]
+|===
+¦**Command line**
+¦**Explication**
+¦tmux new
+¦Create a new session
+¦tmux new -s <name>
+¦create a new session with the name <name>
+¦tmux a
+¦Go to the last session open
+¦ctrl+b "
+¦new vertical terminal
+¦ctrl+b %
+¦new horizontal terminal
+¦crtl+b ->/<-
+¦swith from one terminal to another
+|===
