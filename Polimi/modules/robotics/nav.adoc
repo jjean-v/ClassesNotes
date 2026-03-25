@@ -4,3 +4,4 @@
 ** xref:20-robotics.adoc[Robotics]
 ** xref:30-actuators-sensors.adoc[Actuators and Sensors]
 ** xref:40-localization.adoc[Localization]
+** xref:50-ros-structure.adoc[ROS]
