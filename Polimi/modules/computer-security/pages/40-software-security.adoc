@@ -1,0 +1,46 @@
+== Software Security
+
+# Software Security
+
+## Software Security fundamentals
+
+Good software engineering: meet requirements
+
+* Functional requirements
+** Software must do what it is designed for.
+* Non-functional requirements
+** Usability
+** Safety
+** Security
+* Creating inherently secure applications is a fundamental, yet often unknown, skill for a good developer or software engineer.
+** Creating secure software is hard.
+
+For a long time, making the software secure was the last of the concern.
+
+**Software has Vulnerabilities**
+
+Software should implement the specifications
+
+* Unmet specification == software bug
+* Unmet security specification == vulnerability
+
+A way to leverage a vulnerability to violate the CIA is called exploit.
+
+* Vulnerability != exploit
+* Bug if its impact functionality   
+* Vulnerability if its impact the security
+
+====
+**RUID** : the ID of the one runnning the program
+**EUID** : "current" UID og the process
+====
+
+## Vulnerability Examples
+
+Key Issues in Secure Design /Principle of Secure Design
+
+* Reduce privileged parts to a minimum.
+* KISS (Keep It Simple, Stupid).
+* Discard privileges definitively (i.e. SUID->RUID) as soon as possible
+* Open design: just as with Kerckhoffs principle, the program must not rely on obscurity for security.
+* Concurrency and race conditions are tricky.
