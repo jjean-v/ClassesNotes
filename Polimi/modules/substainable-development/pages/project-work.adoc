@@ -1,0 +1,65 @@
+== Project Work
+
+
+# System dynamic modelling
+
+## A bit of history
+
+System dynamic modelling born after the 2nd WW, Professor Jay W Forrester from MIT. He applied it first for General Electric, then Boston, then world dynamics, then the environmental limit of growth: the beginning of sustainable development.  
+Then John D. Sterman took Forrester’s work and contributed to conceptualize System Dynamics Theory, characterized by : 
+
+* Non linear phenomena  
+* Feedback chain: cause and effects links are not linear  
+* Delay in Time: (most innovative part) 
+
+## Use 
+
+Every problem can be tackled using these method if it includes the 3 key factors (otherwise System Dynamics is useless)  
+The effect of the feedback chain can be either positive or negative.
+
+Problem **Boundaries** definition :   
+We need to choose what to study and what to cut out, also we have to choose a time boundary (thus primary education would be irrelevant because the effects would be seen in the next generation, crossing the time boundary)
+
+# Project Work 
+
+Ouput : report (template to use), presentation (10min \+ Q\&A 5-10 min)  
+Objective : designing policy for impact on Water, Energy, Climate
+
+To support SDGs:
+
+* SDG 6 Clean water  
+* SDG 7 affordable and clean energy  
+* SDG 13 Climate change
+
+Why Ethiopia and Egypt
+
+Last year, Ethiopia creates hydro-electric plants that is regulating the flow of the Nile
+
+Egypt depends on the Nile for nearly all its freshwater- 60% from the blue Nile
+
+## Modelling Process
+
+. Problem articulation and Problem Boundaries Definition  
+     
+Define the boundaries, indicators of our model  
+
+* Water Scarcity  
+* Civil use of water  
+* Agricultural needs  
+* Energy supply (Ethiopia, check for egypt)  
+* all the needs of Ethiopia will influence the Dam filling  
+   
+. Conceptualization of the Dynamic Hypothesis by means of Casual Loop Diagrams  
+. Formulation of a Simulation Model with mathematical equations  
+. Testing the Model Structure and Behaviour  
+. Policy Evaluation
+
+====
+
+Homework : Identify the closure of the loop \= how Egypt’s behaviour can influence Ethiopia (the other cause-effect relation is obvious with Ethiopia's dams)
+
+Describe the selected country and compare it to Africa and other geographical regions using country indicators (e.g. : GDP, HDI, EISD, …) and SDGs specific indicators 
+
+Identify the relevant problems that affects the selected area in terms of SDGs 6,7 and 13, identify the current policy for the selected country, and create a general overview of the country
+
+====
