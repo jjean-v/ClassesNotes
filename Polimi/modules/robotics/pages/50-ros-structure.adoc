@@ -117,4 +117,6 @@ Standardizes: - Discovery (who is there, what topics they offer)
 ¦new horizontal terminal
 ¦crtl+b ->/<-
 ¦swith from one terminal to another
+¦ctrl+b d
+¦detach the current session
 |===
