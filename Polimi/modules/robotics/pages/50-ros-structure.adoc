@@ -96,7 +96,30 @@ Standardizes: - Discovery (who is there, what topics they offer)
 ¦ros2 topic echo <topic-name>
 ¦list the information send in this topic
 ¦ros2 topic echo /turtle1/pose
+¦ros2 service list
+¦Retrieve the service list
+¦ --
+¦ros2 service info <service-name>
+¦Get the info of <service-name>
+¦ --
+¦ros2 call <service-name> <function-name>
+¦start the service
+¦ --
+¦ros2 call /clear std srvs/srv/Empty
+¦ros2 action list
+¦Retrieve the action list
+¦ros2 action send_goal <action-name> <smthg>
+¦Launch <action-name> action 
+¦ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute
+¦ros2 bag record -a 
+¦Record everything into the folder bags 
+¦ --
+¦ros2 bag play <log-name>
+¦Play the log-name file 
+¦ --
 |===
+
+
 
 ### Bonus: tmux command line
 
@@ -117,4 +140,19 @@ Standardizes: - Discovery (who is there, what topics they offer)
 ¦new horizontal terminal
 ¦crtl+b ->/<-
 ¦swith from one terminal to another
+¦ctrl+b d
+¦detach the current session
 |===
+
+
+====
+Install Foxglove studio to see and visualize the data
+
+. Launch command:  ros2 launch foxglove_bridge foxglove_bridge_launch.xml
+. GO on Foxglove
+. Open connection
+. Specify local host because same macine
+. Start running
+. Choose topic (turtle1/pose_x)
+. You can now visualize in real time
+====
