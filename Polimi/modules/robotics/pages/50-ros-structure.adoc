@@ -101,8 +101,10 @@ Standardizes: - Discovery (who is there, what topics they offer)
 ¦ --
 ¦ros2 service info <service-name>
 ¦Get the info of <service-name>
+¦ --
 ¦ros2 call <service-name> <function-name>
 ¦start the service
+¦ --
 ¦ros2 call /clear std srvs/srv/Empty
 ¦ros2 action list
 ¦Retrieve the action list
@@ -111,8 +113,10 @@ Standardizes: - Discovery (who is there, what topics they offer)
 ¦ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute
 ¦ros2 bag record -a 
 ¦Record everything into the folder bags 
+¦ --
 ¦ros2 bag play <log-name>
 ¦Play the log-name file 
+¦ --
 |===
 
 
