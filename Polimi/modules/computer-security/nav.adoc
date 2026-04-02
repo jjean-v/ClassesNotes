@@ -3,3 +3,4 @@
 ** xref:10-introduction.adoc[Introduction]
 ** xref:20-cryptographie.adoc[Cryptography]
 ** xref:30-practical-exercise.adoc[Exercise]
+** xref:40-crash-course.adoc[Assembler Course]
