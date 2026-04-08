@@ -87,6 +87,15 @@ Standardizes: - Discovery (who is there, what topics they offer)
 ¦ros2 run <package-name> <node-name>
 ¦start the node
 ¦ros2 run turtlesim turtlesim_node
+¦ros2 run <package-name> <node-name> --ros-arfs -p <arg-name>:=<value>
+¦start the node by defining a new value for <arg-name>, <arg-name> can be not writtable
+¦ros2 run cpp_parameter_showcase basic_parameters_node --ros-args -p robot_id:=HB-99
+¦ros2 param describe </node-name>  <arg-name>
+¦Show the property of <arg-name>, when the node is already running
+¦ros2 param describe /basic_parameters_node max_speed
+¦ros2 param set </node-name>  <arg-name> <value>
+¦When the node is already runnin, set the value of the arg name, with respect of the constraints
+¦ros2 param set /basic_parameters_node max_speed 1.0
 ¦rqt
 ¦See the graph visualization of the node interaction
 ¦ rqt => .. => Graph
