@@ -1,0 +1,126 @@
+== Crash Course
+
+# x_86 architecture
+
+## Introduction 
+
+## Von Neumann architecture
+
+CPU with some register ALU, then a bus way to strore and retrieve information from the RAM
+
+Different type of register
+
+* General purpose register 
+** EAX, EBX, ECX, EDX 
+* EBX, base pointer
+* ESP stack pointer
+* EIP Instruction pointer 
+
+### Fundamental Size 
+
+* byte : 8bites
+* word: 2 bytes 
+* dword: Doubleword, 4 bytes 
+
+## Assembly and Machine code
+
+Code programm to assembly => Done by the Compiler
+
+Assembly to Hexa => DOne by the Assembler
+
+You will loose lot of things when compiling the code, name of the function, variables, some code optimsation
+
+So when you reverse engineering you will loose lot of informations 
+
+### x86 basi syntax
+
+#### mov <destination> <source>
+
+mov don't move but copy the source into the destination
+
+you can move data, register value 
+
+and you can move memory to register 
+
+    mov eax, [ebx]  => EAX = *EBX 
+
+You consider the value of ebx as an address, you go to this adrdress and you take the value to store it in eax 
+
+**Memory to memory is an invalide operation**
+
+    mov [eax], [ecx]
+
+#### add <destination> <source> 
+
+dest = dest + source 
+
+#### mul <source> 
+
+Implied operand according to the size of source 
+
+First operand should already be inside of the destination 
+
+#### lea 
+
+like a mov but it is storing the pointer not the value 
+
+** It does NOT acess memory**
+
+#### nop 
+
+No operation, just move to next intructions 
+
+Lot use in hacking 
+
+The opcode is pretty famous and is 0x90 
+
+### Endianness 
+
+Endianness: convention that specifies in which order the bytes of a data word are lined up sequentially in memory.
+
+* Big-endian (left)
+** Systems in which the most significant byte of the word is stored in the smallest address given.
+* Little-endian 
+** Systems in which the least significant byte is stored in the smallest address.
+** IA-32 is “little endian”.
+
+## Program Layout and Functions
+
+### The stack 
+
+* Place where you store data 
+* LIFO data structures 
+* Handle through the register ESP (stack pointer)
+* Remenber: the stack grows **towards lower addresses 
+* push and pop the place or remove variable from the stack 
+
+### Conventions cdec 
+
+Default calling convention used by most x86 C compilers
+
+* Can be forced with the modifier cdecl
+* Arguments: passed through the stack, right to left order
+* Cleanup: the caller removes the parameters from the stack after the called function completes
+* Return: register EAX
+* Caller-saved registers: EAX, ECX, EDX (other are callee-saved)
+
+### Convention fastcall 
+
+Default calling convention used by most x86 64 C compilers
+
+* Can be forced with the modifier fastcall
+* Parameters passed in registers: rdi, rsi, rdx, rcx, r8, r9, subsequent ones on the stack (reverse order, caller cleanup)
+* Callee-saved registers: rbx, rsp, rbp, r12, r13, r14, and r15
+* Caller-saved registers (scratch): rax, rdi, rsi, rdx, rcx, r8, r9, r10, r11
+* Return value: rax (if 128-bit: rax and rdx)
+
+## Tooling 
+
+### GDB 
+
+What is GDB?
+GDB is GNU Project’s Debugger: allows to follow, step by
+step, at assembler-level granularity, a running program, or
+what a program was doing right before it crashed.5
+
+disassembler prompt to get the programm with address, to then store a breakpoint 
