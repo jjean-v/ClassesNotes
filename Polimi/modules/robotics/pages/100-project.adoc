@@ -1,0 +1,26 @@
+== Project
+
+# Project Presentation
+
+
+Compute Robot Odometry with partails from encoders 
+
+publish pose as tf 
+
+Compute errors from position and odometry computation
+
+custom message will be furnished, rotation speed of the motors
+
+## The robot
+
+Agix-x Bunker Pro 
+
+## Delivery 
+
+====
+Be aware to strictly respect the rules to avoid losing lot of points
+====
+
+Due date: 29^th^ of April
+
+Group of three

@@ -1,5 +1,6 @@
 .Robotics
 ** xref:0-presentation.adoc[Presentation]
+** xref:100-project.adoc[Project presentation]
 ** xref:10-robotic-middlewares.adoc[Middlewares]
 ** xref:20-robotics.adoc[Robotics]
 ** xref:30-actuators-sensors.adoc[Actuators and Sensors]
