@@ -63,3 +63,58 @@ Describe the selected country and compare it to Africa and other geographical re
 Identify the relevant problems that affects the selected area in terms of SDGs 6,7 and 13, identify the current policy for the selected country, and create a general overview of the country
 
 ====
+
+# Model Explanation
+
+## Choose of a loop
+
+### Reinforcing/Balancing loop
+
+We beging with a side, we increase it and we look how the link will act, once we get back to the origin point we observe. If we finish by increasing the starting point it means it is as **Reinforcement loop**
+
+We begin with increase and finish by decreasing, it is a **Balancing loop**
+
+## Variable
+
+### Exogenous Variables
+
+Variable that we assume with a value 
+Called as auxiliary variable 
+
+* Reproductive lifetime
+* Urban population share
+
+You can choose to change this variables, if it makes sense
+Looks like a constant
+
+### Endogenous Variables
+
+Called as parameters, needs to be set for generating the model
+Something that is calculated within the model 
+
+* Total Fertility rate
+
+
+Better to leave it as it is. If you are confident and understand how they are defined, you can change it but you have to explain the reason and everything
+
+### Flow Variable
+
+
+Combination of stock and auxiliary 
+The peculiarity of this variable is the unit of times when it happens.
+
+* Birth rate 
+
+### Stock Variable 
+
+Integral over time of certain inflow minus certain integral over time of an outflow
+Can be represented as a bathtub
+
+* Population 0 to 14
+
+### Variabes to act on it 
+
+You can change some variables, depending of the policy of the country
+
+* Desired energy mix by sector
+** The column need to add to 1
