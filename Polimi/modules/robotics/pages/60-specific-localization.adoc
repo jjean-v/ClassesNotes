@@ -1,0 +1,49 @@
+== Localization
+
+
+# Beam Sensor Model 
+
+The goal of this course is not to compute our position, but to compute the distance between the robot and the obstacle, knowing our position
+
+We compute several probalities
+
+* the noise measurement
+* the unexpected obstacle
+* the out of range
+* the random value
+
+this distribution change also in respect to the size of the expected distance, if it's very far away, more prone to error of people passing ...
+
+## Maximum Likelihood position
+
+How can I know the robot position 
+
+for any position of the robot in the environment, I can compute the probability of being there, knowing the distance we measure 
+
+I compute the **likelihood* of my measurement 
+
+### Recap 
+
+raytracing: expected distance 3 meters 
+my sensor tells me 4 meters, i have a probability
+Same in other direction 
+
+We multiply all this probability
+
+We compute the likelihood the robot 
+
+
+we do this to every position on the map, we take this point, raytracing give 6 meters, knowing we measure 4 meters what's the probability given our model sensor 
+We get maximum likelihood for this position 
+
+
+choosing the position that maximize the likelihood of the **sensors** 
+
+
+Problem:
+
+* Very heavy
+* May be ambiguous
+
+# Scan Sensor Mendol 
+
