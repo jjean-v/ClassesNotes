@@ -47,3 +47,86 @@ Problem:
 
 # Scan Sensor Mendol 
 
+# Landmark
+
+ Landmark sensor provides
+
+ * Distance (or)
+ * Bearing (or)
+ * Distance and bearing
+
+Can be obtained via
+
+* Active beacons (e.g., radio, GPS)
+* Passive (e.g., visual, retro-reflective)
+
+Standard approach is triangulation, but it struggle with managing uncertainty …
+
+In practice we just use gaussian distribution
+
+* Gaussian on the angle
+* Gaussian on the distance 
+
+
+that is the likelihood of getting the mesasurement being there
+
+for each position we have the likelihood of the measurement, since they are independant we can multiply them
+
+To get the optimum solution for the likelihood of the measurement 
+
+p(x) : probability of being in a certain place (Motion Model)
+p(z|x): Likelihood of my measurement (Sensor Model)
+p(x|z): probability of being in x given z
+
+**Bayes Theorem**
+
+$$$
+p(x)*p(z|x) => p(x)*p(z|x)/p(z) = p(x|z)
+$$$
+
+The fusion of a Motion Model and a Sensor model into a single "a posteriori" estimate of the position is called **Bayesian Theroem**
+
+
+## Bayesian Filtering Framework 
+
+We want to compute an estimate of the posterios probabibility of robot state 𝑥𝑡
+
+    𝐵𝑒𝑙(𝑥𝑡) = 𝑃(𝑥𝑡|𝑢1, 𝑧1 … , 𝑢𝑡, 𝑧𝑡, 𝑚)
+
+from the stream of information about movement and sensors
+
+In particular we assume known:
+
+* The prior probability of the system state 𝑃(𝑥0)
+* The motion model 𝑃(𝑥′|𝑥, 𝑢)
+* The sensor model 𝑃(𝑧|𝑥, 𝑚)
+** This assume you know where you are
+
+We assume the Markov assumptions for the model 
+
+
+### Markov Assumptions 
+
+we assume the measurement z~t+1~ given all the previous measurement, all the previous measurement, **it only depends on the current states**
+
+### Bayes Filters 
+
+knowing P(A,B)
+to have P(A) is equal
+
+P(A) = sum(P(A,B= b))
+     = sum(P(A|B=b)P(B=b))
+
+we can pass this to integral 
+
+### Piecewise Constant Approximation (Example)
+
+Let's consider robot moving in a monodimensional space
+The distribution of the initial position is uniform (we have no clue where the robot is)
+
+The robot has a camera that can detect if there is a door in front of him
+
+then you move => for each beam you move the probabibility, but you have noise so you shift the probability but the curve is lower, it has smooth
+now he observe the door, P(z|x) likelohood of observing a door given the position of the robot 
+
+you multiply the belief and the probabibility and you get **Bel'(x~1~)**
