@@ -63,3 +63,26 @@ Describe the selected country and compare it to Africa and other geographical re
 Identify the relevant problems that affects the selected area in terms of SDGs 6,7 and 13, identify the current policy for the selected country, and create a general overview of the country
 
 ====
+
+## Policy Implementation 
+
+### Energy
+
+#### Egypt 
+
+Use a lot of fossile Fuels
+
+Only 12% of Renewable energy
+
+* And 3% of wind
+** But Egypt has a huge wind power 
+
+    Capacity Factor = 0.35 Gwh/h 
+
+    +13.54GW*0.35GWh/h * 8760h/y = + 41513 Gwh/y 
+
+If we increase the wind energy, Total generation still needs to match total demand
+So we can substract to other sectors 
+
+=> Need to decrease Natural gase by 12.15 GW 
+
