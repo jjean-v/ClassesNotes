@@ -130,3 +130,74 @@ then you move => for each beam you move the probabibility, but you have noise so
 now he observe the door, P(z|x) likelohood of observing a door given the position of the robot 
 
 you multiply the belief and the probabibility and you get **Bel'(x~1~)**
+
+Bayes Filter Algorithm  aims to estimate the a posteriori robot position, given the map and all the previous position
+This a posteriori is called **Belief**
+
+    Motion Model = Prediction
+    Sensor Model = Update
+
+
+#### Problem 
+
+Is there a distribution that we can compute the integral in a closed form ?
+
+yes **Gaussian distribution**
+
+We approximate the Belief by a gaussian distribution that has the same mean and same variance.
+
+Now we can compute integral very easily.
+
+With 3 + 6 parameters we can represent every position inside an environment independant of its size
+
+* 3 for the predicted position
+* 6 for a ellipsoidal of the error prediction around the position 
+
+### Discrete Time Kalman Filter 
+
+computing the position as a linear equation of the last position and the velocity*times
+
+* A~t~(n x n) describes how state evolves from t-1 to t w/o controls or noise
+* B~t~(n x l) describes how control ut changes the state from t-1 to t
+* C~t~(k x n) describes how to map the state x~t~ to an observation z~t~
+* random variables representing process and measurement noise assumed independent and normally distributed with covariance R~t~ and Q~t~ respectively
+
+
+* Initial belief is normally distributed: 𝐵𝑒𝑙(𝑥0) = 𝑁 𝜇0, Σ0
+** probabibility of the next step is a gaussian distribution over the state, with a mean and a variance which is a "covariance"
+* We assume observation is a linear equation of you position on the map plus some Gaussian noise 
+
+
+#### Linear Gaussian System: Prediction 
+
+We can then approximate the Belief without integral:
+
+image::robotics-belief.png[] 
+
+#### Kalman Filter ALgorithm 
+
+Prediction and Correction can be fully asynchrone 
+
+If you have a motion without measurement, you can only do the prediction and skip the correction
+
+**Example**
+
+Problem of the wall 
+
+We inialize more or less in the proper position 
+
+* Can be a problem if we are wrong 
+
+. The robot is moving -> the belief is a gaussian moving from the right
+. Gets the measurement -> probability of detecting the door based on where you are
+. We compute the correction -> the gaussian will shrink 
+. We move again -> The more we move, the more the uncertainty increase 
+
+* You cannot move an infinite time without correction, at some point you need measurement to get correction 
+* If we had started, thinkint the robot is in the wrong place
+** This is a problem, if you see the door 3 and you believe you are in front of the door 1, this is a big problem 
+** This problem is due because it's a gaussian and it has one single maximum
+** Needs to start near the proper position
+
+### How to deal with non Linear Dynamic Systems ? 
+
