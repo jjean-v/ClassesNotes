@@ -131,31 +131,6 @@ now he observe the door, P(z|x) likelohood of observing a door given the positio
 
 you multiply the belief and the probabibility and you get **Bel'(x~1~)**
 
-
-### Particle Filte 
-
-Banana shape
-
-Works good even if the robot can only see one Landmark
-
-Problem of particle depletion = Where the probabibility is 0 in some place 
-
-
-THe particle filter can solve the kidnapping robot problem in some simple ways
-
-* => Generate 90% motion particle as they are
-* => And the 10% remaining spread them randomly
-** Like this we avoid the 0 probabibility
-
-
-## Bonus
-
-Localization with lidar or Sonar works on empty space or with few movement objects
-
-Project Minerva => They put landmark on the ceiling
-
-* Need to compute the likelihood of the image given the map 
-* If I see smthg white, grey or black, I have a likelihood on the map 
 Bayes Filter Algorithm  aims to estimate the a posteriori robot position, given the map and all the previous position
 This a posteriori is called **Belief**
 
