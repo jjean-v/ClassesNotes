@@ -251,3 +251,11 @@ Project Minerva => They put landmark on the ceiling
 
 * Need to compute the likelihood of the image given the map 
 * If I see smthg white, grey or black, I have a likelihood on the map 
+
+
+## Exam question 
+
+The function 
+The Algorithm
+How it works
+What's the point
