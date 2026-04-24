@@ -1,0 +1,114 @@
+== Format Strings
+
+# Format Strings Bugs 
+
+## Format String 
+
+Solution to the problem of having an output string including variables formatted according to the programmer
+
+**Definitions of functions with multi parameters**
+
+    f(int a, char b, ...)
+
+    can be called with multiple arguments
+
+```
+
+Always placed on the stack, essentially a linked list 
+
+
+#include <stdio.h>
+void main () {
+    int i = 10;
+    printf("%x %d AAA\n", i, i);
+}
+
+$ ./fs
+a 10 AAA
+```
+
+## Variable Placeholders 
+
+Placeholders identify the formatting type:
+
+[cols=2*,separator=¦]
+|===
+¦ %d or %i
+¦ decimal
+¦ %u 
+¦ unsigned decimal
+¦ %o 
+¦ unsigned octal
+¦ %X or %x 
+¦ unsigned hex
+¦ %c 
+¦ char
+¦ %s 
+¦string (char*), prints chars until \0
+|===
+
+Landmarks are compiled at runtime, make it very hard to compile "i think" 
+
+## Vulnerable Example 
+
+```
+#include <stdio.h>
+int main (int argc, char* argv[]) {
+    printf(argv[1]);
+    return 0;
+}
+
+$ gcc -o vuln vuln.c
+$ ./vuln "ciao"
+ciao
+
+$ ./vuln "%x %x"
+b7ff0590 804849b
+```
+Would be called as a format string 
+Take one argument on the stack on spit it on the screen, and do it another time
+
+**It prints the content of memory**
+
+The first one is the **save EBP**
+
+To scan the stack we can use the %N$x syntax (go to the Nth parameter)
+
+### Can we also write ?
+
+%n = write, in the address pointed to by the argument, the number of chars (bytes) printed so far
+
+```
+int i = 0;
+
+printf("hello%n",&i);
+
+```
+At this point, i == 5
+
+If this %n refers to my string, I can make it point wherever I want on the memory.
+
+If I start my string with a valid address where I can write.
+
+
+We can expand the counter by adding blank space, expand it to have the same value as a valid address
+
+Problem: Valid 32 bit address are enourmous number, takes to much time to print 
+
+Use %hn to write to small number and add it together 
+
+We first write on save EIP and then save EIP+2 
+
+    
+### Exploit Example 
+
+    <target><target+2>%<lower_value>c%pos$n<higher_value>c%pos+1$n
+
+Even if there is a canary it will still works, because we precisely re-write only the saved EIP 
+
+### Countermeasures
+
+* memory error countermeasures seen in the previous slides help to prevent exploitation
+* modern compilers will show warnings when potentially dangerous calls to printf-like functions are found
+* patched versions of the libc to mitigate the problem
+** Compiler integration of count-and-check approach
