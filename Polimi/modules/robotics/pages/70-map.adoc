@@ -1,0 +1,217 @@
+== Map
+
+# Building a Map
+
+## Mapping with known poses
+
+If you want to build the map with the robot moving it's complex.
+
+* **We need to assume a perfect position, so a perfect odometry**
+**This assumptions is gonne be a problem for later.
+* If you check several time a landmark you can improve the position, it can then become very precise
+
+### Representation
+
+Here is two methods:
+
+* Landmark based
+** Know the position of specific point in the map
+** Works very well if you can put this landmark
+* Grid Maps or scans
+** White, you know the position is free
+** Black, the position is occupied
+** Grey, you are unsure
+** If you want to have a grid as large as a city, too much number of cell to store
+* The choice of the map can also depend of the type of sensor yo have
+** Laser, much more easy to compute the likelihood of a distance on a grid
+** Camera, much easy to use with landmark
+* There is another kind of map, but these are he most common
+
+### Occupancy
+
+The first kind of map is a grid map because the had a sonar
+
+The most simple occupancy model used sonars
+
+* A 2D Gaussian for information about occupancy
+* a "negative gaussian" that tells you there is nothing between you and the obstacle
+* Another 2D Gaussian for free space Sonar sensors present several issues
+* A wide sonar cone creates noisy maps
+* Specular (multi-path) reflections generates unrealistic measurements
+
+### 2D Occupancy Grid
+
+A simple 2D representation for maps
+
+* Maps the environment as an array of cells
+* Usual cell size 5 to 50cm
+** If you are an city, you can't have cell size of 5cm, too much information
+** You choose 1m size cell, not the best but you can map the city
+* Each cells holds the probability of the cell to be occupied
+* Useful to combine different sensor scans from different sensors (e.g., sonar + lidar)
+* Each cell is assumed independent
+* Probability of a cell of being occupied updated using Bayes theorem
+
+    𝑃(𝐴|𝐵) =𝑃(𝐵|A)𝑃(𝐴)/𝑃(𝐵|𝐴)𝑃(𝐴) + 𝑃(𝐵|~𝐴)𝑃(~𝐴)
+
+* They use log(odds(i,j)) to represent the probabibility of a cell being occupied
+* log(odd(i,j)) gies from [-infite, infinite ], and 0 if you don't know
+** [-infinite,0] Occupied
+** [0, infinite] Free
+* Cells are updated recursively by applying the Bayes theorem
+** 𝐴 = 𝑜𝑐𝑐(𝑖,𝑗)
+** 𝐵 = 𝑚𝑒𝑎𝑠𝑢𝑟𝑒(𝑖,𝑗)
+
+To update current odds based on a measurement
+* The equation cancel out the probabibility of the measurement
+* This is why we like the odd
+* If we take the logarithm, it's because the product become a sum
+* Advantages
+** No need for normalisation
+** The content is a sum
+** You get a new measurement, you keep adding the first part of the eqation
+** The problem of keep multiplying with lot of small number (false positive), we might get underflow
+
+
+### Mapping with raw odometry (assuming known poses)
+
+Doesn't work, because we assume the position is correct
+I need to localize in the map to know my position -> once I know my position I can build the map -> Because i know the map I can localize myself
+
+Solution
+
+### Scan Matching
+
+Correct odometry by maximizing the likelihood of pose t based on the estimates of pose and map at time t-1.
+
+If I build a map, I can localize
+If I localize, I can map
+
+The idea is we do one step at a time
+
+. Build a map
+. take a step
+. Adjust you position given you measurement, you previous pose and the action you've done
+. Repeat this step
+
+You predict the next position **given the exact pose**
+I adjust and I pretend to be here, **I will not keep on with the uncertainty of my poes**
+Because I take the argmax
+
+Works way better, but there is some duplicated walls
+
+* Over a long period of time, you may once, may take the wrong position
+* You have no idea to know it's the wrong one
+* And you don't keed the uncertainty so you loose the possible good point
+* You deviate a little bit, so the second time you go on the same path
+** The wall will be moved
+* this method works well on a short range of time
+
+### Simultaneous Localization and Mapping (SLAM)
+
+We can see the uncertainty of the robot increase, but also the uncertainty of the obstacle
+
+Unless if you observe again an element you already saw
+=> The uncertainty of your position decrease
+=> The uncertainty on the past feature decrease
+=> The uncertainty of you previous position decrease
+=> And the position of you previous features decrease also
+
+When you do the Simultaneous Localization and Mapping
+The error on the map is correlated with the error of the robot
+=> If you correct one of these, you can correct all the other correlated element
+
+* You have random variable
+* The measurement is a random variable that you observe
+* Grey means observe
+* The full process is a set of random variable that are
+** The robot pose
+** and the landmark position
+
+#### Full SLAM
+
+* Reconstruct the full trajectory and the map
+* Computing the joint probabibility of the full poses and the landmark given the measurements and the actions
+* Full SLAM is more efficient
+
+#### Online SLAM
+
+We don't necesseraly needs all the poses
+
+* Interested only on the last poses and all the landmark
+* Given all the measurements and the actions
+* Depending on the method you use, it's the simpler one
+
+### Extended Kalman Filter SLAM 
+
+**How to solve the Online SLAM problem**
+
+Kalman filter assume you have state (robot pose), you model the motion of the robot you assume this motion has gaussian distribution 
+
+But now I don't know the map 
+
+* The belief is the Joint state of my position and thepse and map features correlate
+* yellow cov of my positon 
+* blue covariance between the landmark
+* greens 3-N THe correlation between the uncertainty of your position and the uncertainty of the landmark
+** The green model the correlation, if we correct the uncertainty of the robot, we also correct the uncertainty of the landmark
+* We assume the state follow a linear model 
+* Very simple
+* Works very well with landmark base
+* Purpose is to build and localize within feature base map 
+
+#### Bayes Filter: The ALgorithm
+
+Now x has the map inside 
+
+It's the same EKF as the last courses 
+Only difference is the belief, before it was just the yellow part
+
+**Example** 
+
+Red dot are the estimate of the landmark on the map
+
+* Uncertainty is a gaussian 
+
+**Point** 
+
+* Not representing the positon as a gaussian
+* But the vector has a gaussian
+* On the right the covariance matrix
+* The state of the filters grows
+* Each time you observe a new feature, your covariance matric growth
+* Position of the landmark is not correlated with the orientation of the robot
+** That's why there is two white line on the covariance matrix 
+
+#### Properties of KF-SLAM (Linear Case)
+
+Theorem: The determinant of any sub-matrix of the map covariance matrix decreases
+monotonically as successive observations are made.
+Theorem: In the limit the landmark estimates become fully correlated
+Are we happy about this?
+
+* Quadratic in the number of landmarks: O(n^2^)
+* Convergence results for the linear case
+* Can diverge if nonlinearities are large!
+* Have been applied successfully in large-scale environments.
+* Approximations reduce the computational complexity. 
+
+The complexity of the E-KF SLAM goes quadritically with the number of landmarks
+
+Works very well up to hundred landmarks 
+
+#### Beyond EKF SLAM 
+
+EKF-SLAM works pretty well but ...
+
+* EKF-SLAM employs linearized models of nonlinear motion and observationcmodels and so inherits many caveats.
+* Computational effort is demand because computation grows quadratically with the number of landmarks.
+
+Possible solutions
+
+* Local submaps [Leonard & al 99, Bosse & al 02, Newman & al 03]
+* Sparse links (correlations) [Lu & Milios 97, Guivant & Nebot 01]
+* Sparse extended information filters [Frese et al. 01, Thrun et al. 02]
+* Rao-Blackwellisation (FastSLAM) [Murphy 99, Montemerlo et al. 02, ...]
+* Represents nonlinear process and non-Gaussian uncertainty
+* Rao-Blackwellized method reduces computation
