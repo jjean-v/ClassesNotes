@@ -213,5 +213,81 @@ Possible solutions
 * Sparse links (correlations) [Lu & Milios 97, Guivant & Nebot 01]
 * Sparse extended information filters [Frese et al. 01, Thrun et al. 02]
 * Rao-Blackwellisation (FastSLAM) [Murphy 99, Montemerlo et al. 02, ...]
-* Represents nonlinear process and non-Gaussian uncertainty
-* Rao-Blackwellized method reduces computation
+** Represents nonlinear process and non-Gaussian uncertainty
+** Rao-Blackwellized method reduces computation
+
+Idea was to store use kalman filterr on full Slam
+
+* The matrix grow with the features but also with the previous position 
+* But computationnaly unfeasible
+* But we can estimate it 
+
+### The FastSlAM Idea (Full SLAM) 
+
+Instead of having a cov matric 
+
+let's keep 1 000 trajectories, it's a lot but the complexity is constant
+Let's use particle filter to sample the trajectory
+=> Linear in the size of the trajectory 
+
+P(m|X~t~,z~t~)
+
+=> Know I not only no the action, but also the pose
+=> **If you know the trajectory, all the landmarks become independant**
+
+Example: If I see a landmark, I move, I see another one. If I know my trajectory, the only uncertainty would be from my senses, so they are independant
+
+=> P(m|X~t~,z~t~) = product ( P(m~j~|X~t~,z~t~))
+
+Each trajectory will bring its own map, but each feature are independant
+If you know the trajectory, the covariance matrix will be just a diagonale and 0 everywhere, we don't know to store the covairance matrix
+
+Distribution of samples, with each of them a set of gaussian, each of them carry its own map, but the map is small
+
+You can't use the kalman filter bcs it grows quadratically, but you can use particle filter to mitigate the complexity
+
+#### Formulation 
+
+Decouple map of features from poses ...
+
+* Each particle represents a robot trajectory
+* Feature measurements are correlated thought the robot trajectory
+* If the robot trajectory is known all of the features would be uncorrelated
+* Treat each pose particle as if it is the true trajectory, processing all of the feature measurements independentl
+
+#### In Practice 
+
+
+The thins you keep is a set of particles that contains:
+
+* A trajectory which is implemented as the current pose plus a pointer to the last trajectory
+** The pointer is a small implementation detail, but the most brillant detail 
+** Turns the complexity of the aLgorithm from linear to logarithm
+* a set of landmarks 
+** Each landmark represented by a 2x2 EKF
+
+In principal, the set of landmark of a particle is different from the set of landmark of another particle, because it depend on the trajectory, and each particle has a different trajectory
+
+#### Action Update 
+
+#### Sensor Update 
+
+you update the uncertainty of the landmark 
+
+You obtain a **Weight**, which is the likelihood of the measurement
+
+
+#### Example 
+
+On the video we show a sudden improvement, it's not an improvement, it's just the best particle change, that's what we saw
+We saw a huge difference when we close the loop, it looks again at the same landmark, it can correct iself on the trajectory
+
+Is the best particle the true trajectory ? 
+
+No, not necesseraly. The probabibility of having the exact true trajectory is 0. It's a distribution, you can have the probabibility over a interval, but for a point it's 0
+
+The sooner you close the loop the better it is
+
+the longer the time is, the wider the different trajectory are, when we'll close the loop, the best trajectory will be kept, and it will be sample around it. But the more the uncertainty is, you have less chance to have a good trajectory. 
+
+When the particle are starting to point to the same trajectory: **particle depletion** If there is an error you can't correct it
