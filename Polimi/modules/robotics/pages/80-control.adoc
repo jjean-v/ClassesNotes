@@ -1,0 +1,43 @@
+== CM Robotics 
+
+# Control 
+
+Now the position is assume to be given 
+
+## Open loop control 
+
+A mobile robot is meant to move from one place to another
+
+* Pre-compute a smooth trajectory based on motion segments (e.g., line or circles) from start to goal
+* Execute the planned trajectory till the goal
+
+Disadvantages:
+
+* Not easy to pre-compute a feasible trajectory
+* Limitations and constraints of the robots velocities and accelerations
+* Does not handle dynamical changes (obstacles)
+* No recovery from errors
+
+## Feedback Control 
+
+The trajectory is recomputed / adapted online via a simple control schema for path following
+
+* Control orientation acting on angular velocity
+* Control distance acting on linear velocity
+
+## Obstacle Avoidance (Local Path Planning)
+
+Obstacle avoidance should:
+
+* Follow the planned path
+* Avoid unexpected obstacle (i.e., not in the map)
+
+
+### Vector Field Histograms (VFH) [Borensteinet al. 1991]
+
+Use a local map of the environment and evaluate the angle to drive towards
+
+* Environment represented in a grid (2 DOF) with local measurements
+* All openings for the robot to pass are found
+* Plot the obstacle in the map as occupied
+* Very small map, very local 

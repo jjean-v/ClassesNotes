@@ -1,0 +1,113 @@
+== Web application
+
+
+# Web Application Security
+
+## Major Issue 
+
+* BUilt on top of a stateless protocol (HTTP)
+** State "emulation" added on
+* The client can be anything
+** Person, python script, bot, etc 
+** We can check the client side, but we can't be sure of it
+*** Anything that is client side check can be bypassed by a custom client
+
+## The Untrustworthy Client
+
+### HTTP is text based 
+
+
+    curl -H "User-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3" http://example.com
+
+**-H** Enables the user to specify an extra header to include in the request when sending it to the server. This can be used to simulate requests from different browsers or devices, or to include custom headers for testing purposes.
+Now the server don't sees the request send from a curl but from a browser.
+
+
+### Filtering is hard 
+
+* How to filter untrusted data?
+* Not easy (filter must be “correctly paranoid”)
+
+The sequence of validation
+
+. Allowlisting, only allowing through what we expect
+. Blocklisting, on top of that discard known-bad stuff
+. Escaping, transform special characters into something else which is less dangerous
+
+**Basic rule:** allowlisting is safer than blocklisting
+
+# Common Vulnerabilities
+
+## XSS: Cross Site Scripting
+
+Suppose now we have a simple blog app
+
+* lets anybody post a comment
+** simple text field filled by visitor
+*** text displayed back to next visitors
+** If we do not apply any filter to what is inserted, an attacker could type:
+
+    <SCRIPT>
+    alert('JavaScript Executed');
+    </SCRIPT>
+
+* Popup would appear on next visitors’ screen
+* This is called Cross Site Scripting
+
+Run in a browser sandbox, the script is executed in the context of the website, so it can do anything that a normal script on the website can do, like stealing cookies, redirecting to another page, etc.
+
+#### Definition of XSS 
+
+Cross site scripting is a vulnerability by
+means of which client-side code can be
+injected in a page.
+
+Three Types:
+
+. Stored XSS
+. Reflected XSS
+. Dom-based XSS
+
+**Stored XSSS**
+
+The attacker input is stored on the target server in a database (e.g., in a message forum, visitor log, comment field).
+
+Then a victim retrieves the stored malicious code from the web application without that data being made safe to render in the browser (e.g., visualizes the comment).
+
+Can be detected because stored on the victim owner server machine, so we can check the logs and see the attack.
+
+Classical attack: the script store the cookie of the victim and send it to the attacker, so the attacker can impersonate the victim.
+
+**Reflected XSS**
+
+Client input (i.e., “request payload”) is returned to the client by the web application in a response (e.g., error message, search result)
+
+The response includes some or all of the input provided in the request without being stored and made safe to render in the browser.
+
+More dangerous, because it will not be evident for the victim to know that the attack is happening, and it can be used in phishing attacks, for example by sending a link with the malicious code in the URL.
+
+The malicious url can also be change to look like a normal one, so the victim will not be suspicious.
+
+**DOM-based XSS**
+
+User input never leaves the victim’s browser:
+
+* The malicious payload is directly executed by client-side script (e.g., script that modifies/updates the DOM in-memory representation of a page including forms).
+
+#### Same Origin Policy
+
+Implemented by all web clients
+
+* Same Origin Policy (SOP) = all client-side code (e.g., JavaScript) loaded from origin A should only be able to access data from origin A
+** Origin = <PROTOCOL, HOST, PORT>
+* It's a simple concept. What could possibly go wrong?
+** The SOP is not perfect, and there are ways to bypass it, for example by using iframes, or by using the postMessage API.
+** The SOP is not implemented correctly in all browsers, and there are some vulnerabilities that can be exploited to bypass it.
+** Google font is also a problem, it's free under one condition, you have to fetch from them 
+
+#### CSP 
+
+Content Security Policy (CSP) is a security standard that helps prevent cross-site scripting (XSS) and other code injection attacks by allowing web developers to specify which sources of content are trusted.
+
+## SQL Injection
+
