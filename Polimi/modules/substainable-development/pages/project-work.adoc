@@ -140,3 +140,22 @@ If we increase the wind energy, Total generation still needs to match total dema
 So we can substract to other sectors 
 
 => Need to decrease Natural gase by 12.15 GW 
+
+
+# Cooperative Scenarios
+
+So far 
+
+* We only focused on our own country's goal 
+* Policies were designed to optimize national outcomes (food, water, energy)
+* But you may have ignored transboundary impacts
+
+## How to build a Cooperative Scenario 
+
+. Identify the shared element
+** Focus on a transboundary ressource (Blue Nile water, electricity export, food trade)
+. Define a cooperation mechanism
+. Balance incentives and responsabilities
+** Ensure that both countries gain 
+. Asses systemic impact 
+** Simulate the impacts on both countries in the model 
