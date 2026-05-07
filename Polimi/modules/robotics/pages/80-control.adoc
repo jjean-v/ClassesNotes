@@ -44,3 +44,88 @@ Use a local map of the environment and evaluate the angle to drive towards
 * The ones with the lowest cost is selected
 ** You would like to choose the one that takes you the closest to the goal 
 ** You have to go to the ones that are the most useful
+
+Limitations 
+
+* It assume at each time, the robot stop turn and goes straight
+* Actually, if the robot goes continually, if follows a curvature
+
+### Curvature Velocity Methods (CVM) [Simmons et al. 1996]
+
+CVMs add physical constraints from the robot and the environment on (v, w)
+
+* Assumption that robot is traveling on arcs (c= w / v) with acceleration constraints
+* Obstacles are transformed in velocity space
+* An objective function to select the optimal speed
+
+Limitation 
+
+* Curvature computation is way more complex
+
+### Vector Field Histogram+ (VFH+) [Borenstein et al. 1998]
+
+Assumption: If an obstacle block a trajectory, all the trajectory are blocked, even the curvature 
+
+* Reduce a lot the computation time 
+
+* VFH+ accounts also for vehicle kinematics
+* Robot moving on arcs or straight lines
+* Obstacles blocking a given direction blocks all trajectories (arcs) like in an Ackerman vehicle
+* Obstacles are enlarged so to account for allkinematicallyblocked trajectories
+
+However VFH+ as VFH suffers
+
+* Limitation if narrow areas (e.g.doors) have tobe passed
+* Local minima might not be avoided
+* Reaching of the goal can not be guaranteed
+* Dynamics of the robot not really considered
+** If you have to switch trajectory, it is not sure you can immediately switch trajectory
+** Should be taking into account that you can't immediately change you angular and linear velocity
+
+### Dynamic Window Approach (DWA) [Fox et al. 1997]
+
+Try to know the angular and linar velocity that my robot should take 
+
+The kinematics of the robot are considered via local search in velocity space:
+
+* Consider only **circular trajectories** via pairs V~s~=(v,ω) of linear and angular speeds
+** Circular trajectory: trajectory with a constant radius
+* V~a~=(v, ω) is **admissible**, if the robot is able to stop before the closest obstacle
+* A **dynamic window** restricts the reachable velocities V~d~ to those that can be reached within a short time given limited robot accelerations
+
+#### How to choose (v,w) ?
+
+alpha beta and delta are choosed by simulating, trial and error 
+
+The sigma is a sigmoidal function
+
+Improvement proposed: 
+
+* Try to change this cost function G 
+** It only takes into robot position, the target he wants to reach, the velocity of the robot plus the obstacle 
+** So far the technology only look near the robot 
+* Give a meaningful name *Navigation Function** (NF)
+** Build by with different components 
+*** forward robot velocity
+*** cost to reach the goal 
+*** distance from the goal 
+* Still lots of trade off, lots of trials and errors
+
+### DWA Algorithm (via trajectory rollout)
+
+
+The basic idea of DWA … but with samples
+
+. Discretely sample robot control space
+. For each sampled velocity, perform forward simulation to predict what would happen if applied for some (short) time.
+. Evaluate (score) each trajectory resulting from the forward simulation
+* Pretty much from before, but you directly sample the control space, not necesserally pure circular trajectory
+. Discard illegal trajectories, i.e.,those that collide with obstacles, and pick the highest-scoring trajectory
+
+can handle non circular trajectories
+
+* we can simulate from other trajectory 
+** ex: your turning angle max increase with the time 
+** Kind of trajectory they used to plan street (called Clothoïd)
+* Instead of sampling from linear and angular velocity, you can sample from the Clothoïd
+* We can simple from angular velocity and the speed of which your changing your radius in respect to your speed
