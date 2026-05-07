@@ -38,6 +38,9 @@ Obstacle avoidance should:
 Use a local map of the environment and evaluate the angle to drive towards
 
 * Environment represented in a grid (2 DOF) with local measurements
-* All openings for the robot to pass are found
 * Plot the obstacle in the map as occupied
 * Very small map, very local 
+* All openings for the robot to pass are found
+* The ones with the lowest cost is selected
+** You would like to choose the one that takes you the closest to the goal 
+** You have to go to the ones that are the most useful
