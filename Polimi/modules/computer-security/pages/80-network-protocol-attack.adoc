@@ -1,0 +1,23 @@
+== CM Computer Security 
+
+# Network Protocol Attacks 
+
+## Taxonomy of Typical Attacks 
+
+* Denial of Service (against availability):
+** service unavailable to legitimate users
+* Sniffing (against confidentiality):
+** abusive reading of network packets
+* Spoofing (against integrity and authenticity):
+** forging network packets
+
+
+### SYN Flood Attacks 
+
+#### Mitigations 
+
+
+Create cookie
+Needs to do the cookie in the TCP field, limited field 
+
+

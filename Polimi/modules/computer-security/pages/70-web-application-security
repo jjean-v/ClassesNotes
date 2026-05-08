@@ -111,3 +111,66 @@ Content Security Policy (CSP) is a security standard that helps prevent cross-si
 
 ## SQL Injection
 
+    x';--
+
+Enables to acces without putting a password 
+
+    ' OR '1' = '1
+
+Enables to show all the data in the database.
+
+## Code injection Problem 
+
+Conflicting requirements:
+
+*Functional req: we need to mix code (e.g., HTML) with data (e.g., the blog comment)
+* Security req: never mix code and data!
+
+**Consequence**: if, at any point, there is a "parsing" routine (e.g., the browser's JavaScript parser) that reacts (e.g., prints something) on some "control sequences" found in the data, we have a **vulnerability**.
+
+### Directory Path Traversal 
+
+Some misconfigured web servers allow users to access files outside the intended directory by using special characters in the URL, such as "..%2f" to navigate up the directory structure. This can lead to unauthorized access to sensitive files and data on the server.
+
+
+This vulnerability is essentially still in embedded system 
+
+### Password Security 
+
+Choose a good hash algorithm, not a fast one, one that is designed to be slow, like bcrypt, scrypt, or Argon2. This makes it more difficult for attackers to crack the passwords if they gain access to the hashed password database. And the user don't notice it.
+
+### Cookies
+
+Stealing the cookies makes the attacker able to impersonate the victim, so it's important to protect them. One way to do this is to use the HttpOnly flag, which prevents client-side scripts from accessing the cookies. Another way is to use the Secure flag, which ensures that the cookies are only sent over HTTPS connections.
+
+#### Security issues with sessions 
+
+* Prevent prediction of the token a client received, or will receive (next token)
+** to prevent impersonation/spoofing attacks
+** minimize damage of session stealing
+* Any token should have a reasonable expiration period
+** NOT set in the cookies!
+* Cookie encryption (sensitive information) and storage (use a **MAC** to avoid tampering)
+** Perfect scenario for a Mac, because the person applying the MAC and verifying it are the same (the server), so we don't have to worry about key distribution
+
+## CSRF: Cross Site Request Forgery
+
+Forces an user to execute unwanted actions (state-changing action) on a web application in which he or she is currently authenticated with ambient credentials (e.g., with cookies).
+
+Key Concept:
+
+* Cookies are used for session management.
+* All the requests originating by the browser come with the user’s cookies (cookies are ambient credentials: they are sent automatically for every request).
+* Malicious requests (e.g., crafted links) are routed to the vulnerable web application through the victim’s browser.
+* Websites cannot distinguish if the requests coming from authenticated users have been originated by an explicit user interaction or not.
+
+### Mitigation: CSFR Token 
+
+Random challenge token
+
+* Associated to user’s session (unique)
+* Regenerated at each request (e.g., included in each form involving sensitive operations)
+* Sent to the server and then compared against the stored token; Server-side operation allowed only if it matches.
+* **Not stored in cookies**, the whole point is to only be server side, so it cannot be sent automatically by the browser, and it cannot be stolen by an attacker through XSS.
+
+Now, most decent frameworks have built-in support for CSRF tokens, so it's easy to implement this mitigation.
