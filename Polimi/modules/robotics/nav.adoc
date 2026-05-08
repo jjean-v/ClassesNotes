@@ -8,3 +8,4 @@
 ** xref:50-ros-structure.adoc[ROS]
 ** xref:60-specific-localization[More Localization]
 ** xref:70-map.adoc[Map]
+** xref:80-control.adoc[Control]
