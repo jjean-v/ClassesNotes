@@ -5,3 +5,5 @@
 ** xref:30-practical-exercise.adoc[Exercise]
 ** xref:40-crash-course.adoc[Assembler Course]
 ** xref:60-format-strings-bugs.adoc[Format Strings Bugs]
+** xref:70-web-application-security.adoc[Web Application Security]
+** xref:80-network-protocol-attack.adoc[Network Protocol Attacks]
