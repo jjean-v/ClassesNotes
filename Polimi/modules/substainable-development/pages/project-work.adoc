@@ -159,3 +159,12 @@ So far
 ** Ensure that both countries gain 
 . Asses systemic impact 
 ** Simulate the impacts on both countries in the model 
+
+# Policy Brief 
+
+* Explain your Assumptions: don't explain to much 
+* Explain the results, justify your work 
+* During the presentation, explain all the modelling process 
+* Translate quantative result on action 
+* What, Why, How ?
+
