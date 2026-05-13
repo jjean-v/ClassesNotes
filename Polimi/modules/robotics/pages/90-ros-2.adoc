@@ -1,0 +1,38 @@
+== CM ROS 
+
+# ROS2 Advanced features 
+
+## Time 
+
+Can have mismatch, especially when we use bags, that's why we use ros time
+
+* ros time: can be paused if the bag is paused 
+* system time: start at the launch, and never paused 
+
+### Debugging 
+
+How to detect if you have an issue with your time, time jump, not synchronized, ...
+
+In multi system approach, synchronize clock using one as a master. All the other processor units don't go online to get the information, but connect to the master to get the time 
+
+     threshold.min_forward.nanoseconds =  50000000; // (0.05s)
+
+This enables to have restricted value to detect time jump, if you put 1 it will detect everything as an error. 
+
+## Lifecycle 
+
+Use to start the different systems, without launching them, they are in a **unconfigured state**, not shown yet with "ros2 topic list"
+
+List lifecycle nodes 
+
+    ros2 lifecycle nodes
+
+Configure the node, pass to inactive
+
+    ros2 lifecycle set /lifecycle_laser configure
+
+Activate the node, transition to active 
+
+    ros2 lifecycle set /lifecycle_laser activate
+
+You usually have a node that manage all the differents nodes: lifecycle manager
