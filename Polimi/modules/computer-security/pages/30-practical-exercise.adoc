@@ -273,3 +273,52 @@ So it matches the 120 years
     p &win give you the starting address og the win fucntion 
 setvbuf: unbeffering the whole program 
 
+
+# Web Vulnerabilities 
+
+## Exercise 1: function missing_files
+
+XSS Vulnerabilities: reqpath is not sanitized, and passed down to the user 
+
+* It's a refered XSS 
+* Not a Stored XSS because it's not stored in the database
+
+CSRF 
+
+We can create an evil server, when the user log in to this one, we then can have a script that make a request to the good server with a json file.
+=> But for security reason, the web browser will not send the response
+
+If you see a get, post ... if there is no state-changing action in the page that needs to be protected against CSRF, it is not a csrf
+
+### function download file 
+
+SQL Injection: We need to get the password of a user 
+
+Original query:
+
+    SELECT files_id, data FROM files WHERE FILENAME = '
+
+Injection:
+
+    pippo'; UNION SELECT user_id,password FROM users WHERE username='John'; --
+
+Needs to have same number of parameters, and it's better if there are the same type, so we make the assumptions that password must be the same type of data 
+
+## Exercise 2: SHIPSTUFF
+
+* XSS 
+** The input is not sanitized and provided back to the user 
+* CSRF 
+** To send the product, the database will change, so there is a state changing action   
+** So the attacker can send a link for the victim, to ship a product to him 
+* SQL Injection
+
+Original query:
+
+    SELECT user_id, username FROM accounts WHERE u_id =
+
+Injection:
+
+    -1 UNION SELECT user_id, username (other round with password) FROM accounts JOIN ownership ON accounts.u_id = ownership.u_id  JOIN warehouse ON ownership.p_id = warehouse.p_id WHERE product_name = "excalibur";--
+
+
