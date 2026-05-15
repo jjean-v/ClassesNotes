@@ -25,6 +25,11 @@
 - Homework Challenges (up to 3 points)
 - Last for 2 weeks in May
 -  6 challenges
+* To connect to the challenge 
+
+    ssh_____@bin.challenge -p 2222
+
+We then need to type the old password and a new one
 
 ## Prerequisites
 

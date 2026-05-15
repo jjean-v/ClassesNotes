@@ -36,3 +36,28 @@ Activate the node, transition to active
     ros2 lifecycle set /lifecycle_laser activate
 
 You usually have a node that manage all the differents nodes: lifecycle manager
+
+* It handle all the change of states of the other lifecycle node 
+* And on top of that, we usually implement a service to directly call the node manager easier
+
+## Actions 
+
+for simple action service works very well 
+
+Use for scenario that takes time (autonomous navigation: compute odometry, trajectory, avoid obstacke, and arrive a goal) 
+
+Don't want to use a service that i simple pass a command of where he needs to go and i have no information on what's going on 
+
+That's why we have action, it's a **live services**, gives outputs, design to last
+
+I can also cancel an action to send another one 
+
+## Robot simulator 
+
+Gazebo is the default ros simulator, bery bad for photorealistic
+
+Isaac Sim, powered by Nvidia, use a lot for large scale simulation, more photorealistic. Not directly implemented on ROS2. Heavy, needs to start on GPU.
+
+MVSim, Lighter, design for ROS, for the robot that stays on the ground. Modern well friction and movement of the robot, not very photorealistic, the goal is more on laser, scanner sensor. Issues with docker and real-time 
+
+Stage, extremely lightweight, 2D environment, ROS1 only. What we are going to do, wit a wrapper for ROS1 to ROS2. 
