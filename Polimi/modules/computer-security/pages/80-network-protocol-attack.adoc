@@ -21,3 +21,34 @@ Create cookie
 Needs to do the cookie in the TCP field, limited field 
 
 
+### DDOS 
+
+Send a request and forge the destination address to as the victim's addresses. You can also send a request to the broadcast, so all the system on the sub system respond => **multifactor amplification**
+
+So it can be done also with not compromised computer. 
+
+You need to find a protocol that respond more with what you send, and without authentification
+
+### IP Spoofing 
+
+
+    Note: Lot of the problems happens between the change of two layers, layers 2 to 3, 3 to 4, 4 to 5
+
+## Domain name system 
+
+All of the conversation to know the IP of a DNS is on **clear text** 
+
+### DNS Cache Poisoning Attack 
+
+arp cache Poisoning will poison a single machine, here it gets worse 
+
+the machine run a dns cache server
+
+ask for polimi.it 
+
+Goes on the net, browse for polimi.it, save it on the cache and respond you
+
+
+The attacker imporsonate the dns response and he gives the ip address he wants 
+
+last as long as the DNS cache, means 5 minutes, so you send a packet every 5 minutes and almost done 
