@@ -1,6 +1,6 @@
 == Project
 
-# Project Presentation
+# First Project Presentation
 
 
 Compute Robot Odometry with partails from encoders 
@@ -24,3 +24,14 @@ Be aware to strictly respect the rules to avoid losing lot of points
 Due date: 29^th^ of April
 
 Group of three
+
+# Second Project
+
+Bag on google drive 
+Rotation are not great 
+move to multiple slidar from single point lidar, package exist pointcloud laser scaner node
+
+* Use the bag to create a map of the environment (slam toolbox)
+* Setup a realistic navigation, don't put 0 on all the noise
+
+Due date: 18 june
