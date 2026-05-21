@@ -1,0 +1,16 @@
+== CM
+
+# Secure Network Architecture
+
+## Firewall 
+
+Separate in small section, connected together with protection across the gate.
+
+Only check the traffic flowing through it
+
+## Circuit Firewall
+
+Level 5
+
+Relay TCP connections
+

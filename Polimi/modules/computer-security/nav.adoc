@@ -7,3 +7,4 @@
 ** xref:60-format-strings-bugs.adoc[Format Strings Bugs]
 ** xref:70-web-application-security.adoc[Web Application Security]
 ** xref:80-network-protocol-attack.adoc[Network Protocol Attacks]
+** xref:90-secure-network-architecture.adoc[Secure Network Architecture]

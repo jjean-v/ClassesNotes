@@ -61,3 +61,7 @@ Isaac Sim, powered by Nvidia, use a lot for large scale simulation, more photore
 MVSim, Lighter, design for ROS, for the robot that stays on the ground. Modern well friction and movement of the robot, not very photorealistic, the goal is more on laser, scanner sensor. Issues with docker and real-time 
 
 Stage, extremely lightweight, 2D environment, ROS1 only. What we are going to do, wit a wrapper for ROS1 to ROS2. 
+
+### Commands
+
+ros2 run teleop_twist_keyboard teleop_twist_keyboard 
