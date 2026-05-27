@@ -126,3 +126,10 @@ A* is guaranteed to
 
 * Return an optimal path in terms of the solution
 * Perform provably minimal number of state expansions
+
+
+#### Planning with motion primitive
+
+We start creating the graph by starting with a grid. But, in the end the only things we really need is a grid. We can also obtain it from motion primitives, this gives us a graph af all the easible movement. 
+
+Problem: Because it's motion primitive, some motion are not taking into acount. It is again a trade offs
