@@ -1,0 +1,128 @@
+== Robotics CM
+
+# Trajectory Generation
+
+Planning: Defining the sequence of something, to get you from an initial state to the final state. 
+To difference with previous localization plan, we can call it **Global Planning**
+
+
+## Problem Statement
+
+### Definitions
+
+**Path Planning**: A Path is a sequence of configutation that the robot as to go through to go from one place to another place
+
+**Trajectory Generation**: A Trajectory is a path for which a temporal law is specified (e.g., acceleration and velocity at each point). Given the curvature from the path you may have a speed limit
+
+**Maneuver Planning**: a Maneuver is a series of actions or a scheme or plot thatthe vehicle should execute. More a discrete planning
+
+### Planning and Maps Representations
+
+Feature base map, Landmark base map and so on, are not great for planning
+#### Paths 
+
+When you plan a trjacectory, you don't need to know where the obstacles are.
+One of the most common representation of a map, is with paths. In a warehouse, nothing move, do always the the same path, you just need the possible trajectory to go from one point to another 
+
+#### Free space 
+
+Voronoi Diagrams, Tesselation algorithm, The triangle represent where there is free space 
+
+#### Obstacles 
+
+Represent using geometric obstacles
+
+#### Composite
+
+You usually discretise the environment as a grid, and you represent the obstacle with a black square on the grid.
+Limit: Complexity of the planning can be very long fo dense grid
+
+### What a Planner?
+
+* Search Based Planning Algorithms
+** Discretise the environment
+* Random Sampling
+** Sample the environment
+
+image::robotics-planner.png[]
+
+## Planning 
+
+### Planning on a grid 
+
+Assume if you are in a cell, you can move freely in the 8 close cell.
+
+#### Graph based planning basics 
+
+The overall idea:
+
+* Generate a discretized representation of the planning problem
+* Build a graph out of this discretized representation (e.g., through 4 neighborsor 8 neighborsconnectivity)
+* Search the graph for the optimal solution
+* Can interleave the construction of the representation with the search (i.e., construct only what is necessary)
+* Build a graph on top of it 
+
+=> Now trajectory planning, consist just of finding the shortest path in a graph
+
+* You don't have to build the full graph, start the graph from the initial point, expand it until you reach the final point. 
+
+#### Robot Shape 
+
+A real mobile robot should not be modeled as a point, to take into account its shape, obstacles are enlarged
+
+It also might block some entrance. To mitigate, you make the resulation smaller
+=> This might generate some issues and a trade-offis between memory requirements and performance
+
+Its now the most used techniques, also now most of the robots have round shape so it's even better 
+
+
+But not alwyas the robot have a round shape 
+
+#### Configuration Space (C-space)
+
+For an accurate collision detection the Configuration space is used
+
+* A configuration of an object is a point q = (q1, q2,…,qn)
+* Point q is free if the robot in q does not collide
+* C-obstacle = union of all q where the robot collides
+* C-free = union of all free q
+* Cspace= C-free + C-obstacle
+
+Planning can be performed in C-Space (configuration space)
+
+#### Exact and approximate planning 
+
+Different algorithms are available
+
+* Returning the optimal path (e.g., Dijstra, A*, …)
+** You stop when all the cost nods of the frontier cost more than the first found path
+** Very slow
+** You would wand to expand the nodes closer to the target
+* Returning an εsub-optimal path (e.g., weighted A*, ARA*, AD*, R*, D* Lite, ...)
+
+
+#### Searching graphs for least cost paht
+
+Given a graph search for the path that minimizes costs as much as possible
+
+Many search algorithms compute optimal g-valuesfor relevant states
+
+* g(s)–an estimate of the cost of a least-cost path from s~start~ to s
+* optimal values satisfy: g(s) = min~s’’ in pred(s)~g(s’’) + c(s’’,s)
+
+#### A* search algorithm 
+
+Heursitic function 
+
+* Estimate the distance from last point reach with g to final point
+* Needs to be admissible, means the distance has to be equal or lower than the true distance
+** So you usually underestimate
+* Expand the node that has the smallest g(s) + h(s)
+** Because h is underestimate, might not find the best pathn true 
+** But you expand **ALL** the nodes of the frontiere that satisfy the condition
+** You forget the one that are longer than the underestimate, that's why we underestimate
+
+A* is guaranteed to
+
+* Return an optimal path in terms of the solution
+* Perform provably minimal number of state expansions
