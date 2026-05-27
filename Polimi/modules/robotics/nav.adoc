@@ -9,3 +9,5 @@
 ** xref:60-specific-localization[More Localization]
 ** xref:70-map.adoc[Map]
 ** xref:80-control.adoc[Control]
+** xref:90-ros2.adoc[Ros2 Localization]
+**xref:92-trajectory.adoc[Trajectory]
