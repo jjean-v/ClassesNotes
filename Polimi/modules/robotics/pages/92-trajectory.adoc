@@ -128,8 +128,44 @@ A* is guaranteed to
 * Perform provably minimal number of state expansions
 
 
-#### Planning with motion primitive
+### Planning with motion primitive
 
 We start creating the graph by starting with a grid. But, in the end the only things we really need is a grid. We can also obtain it from motion primitives, this gives us a graph af all the easible movement. 
 
 Problem: Because it's motion primitive, some motion are not taking into acount. It is again a trade offs
+
+Graph can be constructed by using motion primitives
+
+* Pros: sparse graph, feasible path, incorporate a variety of constraints
+* Cons: possible incompleteness
+
+### Sampling Based Motion Planning 
+
+Motivations for sampling:
+
+* Computing an explicit representation of collision-free space is extremely time consuming and impractical
+* Conversely checking if a position is in free space is fast. There exist fast collision-checking algorithms to test whether any given configuration (or short path) is collision-free or not, in less than 0.001 sec
+
+Basic idea :
+
+* Sample the space of interest
+* Connect sampled points by simple paths
+* Check if the path is collision free
+* Search the resulting graph
+
+
+#### Rapidly exploring dense Trees (RDT) 
+
+For this one 
+
+* You have your first point
+* sample a point
+* connect it to the nearest node, OR to the neares edge (it means creation of a new node)
+* Repeat this 
+
+#### Rapidly Exploring Random Trees (RRT)
+
+RRT improves on the basic RDT
+
+* Steering the system toward randomsamples according to kinodinamics
+* Bias the tree towards unexploredareas by using a Voronoy bias
