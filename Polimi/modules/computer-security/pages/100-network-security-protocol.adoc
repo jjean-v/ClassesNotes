@@ -1,0 +1,33 @@
+== Computer Security CM 
+
+# Network Security Protocol 
+
+
+## SSL and TLS 
+
+Before TLS1.2
+
+* Not safe at all
+* Lot of bad choice for cryptography security 
+* No integrity included
+
+Now TLS 1.3
+
+* Use AES 
+* Needs a good SHA 
+* Forces a MAC
+
+### TLS Handshake phases
+
+* To Server: Cipher Suite + random data 
+* To Client: Cipher Selection + Other random data 
+* To Client: Server Certificates
+* To Server: Pre-master Secret (encrypted with server public key) + (signed with client private key)
+* Done 
+
+Now instead of only using random data, if client has a shitty random program can be a problem, instead, we hash the entire message that has been sent since the beginning of the conversation
+
+
+### SET 
+
+Protocol to payment method, both sides are not interested of all the informations.
