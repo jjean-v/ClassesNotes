@@ -1,0 +1,287 @@
+= Fiche de révision — Machine Learning
+:toc: macro
+:toclevels: 3
+
+toc::[]
+
+NOTE: Pour les formules, on utilise les entités HTML (ex. `&#x03B8;` &#x2192; &#x03B8;) car le rendu STEM/LaTeX ne fonctionnait pas. Les indices/exposants utilisent la syntaxe AsciiDoc native (`x~i~` &#x2192; x~i~, `w^T^` &#x2192; w^T^).
+
+== Apprentissage supervisé
+
+=== Régression
+
+==== Régression linéaire
+
+*Modèle :* y(x) = w~0~ + w^T^x
+
+*Fonction de perte (OLS) :* E(w) = ½ &#x2211;~n~ (t~n~ &#x2212; y(x~n~))^2^
+
+[NOTE]
+====
+RSS = _Residual Sum of Squares_ = &#x2211;~n~ (t~n~ &#x2212; y(x~n~))^2^. Écrire « ½ × SUM(RSS) » est redondant : la somme **est** le RSS.
+====
+
+*Optimisation :* solution fermée (équations normales w = (X^T^X)^&#x2212;1^X^T^t) **ou** descente de gradient (batch / online-SGD). Ta fiche ne mentionnait que la version online.
+
+==== Régression bayésienne
+
+Approche probabiliste. On modélise une croyance _a priori_ sur les paramètres, mise à jour par le théorème de Bayes en observant les données. En séquentiel, le _posterior_ devient le nouveau _prior_. On obtient une **distribution** sur les paramètres &#x2192; mesure d'incertitude des prédictions.
+
+*Théorème de Bayes (posterior sur les poids) :*
+
+[%hardbreaks]
+p(w | t, X) = p(t | X, w) &#x00B7; p(w) / p(t | X)
+posterior &#x221D; vraisemblance &#x00D7; prior
+
+[WARNING]
+====
+La formule de ta fiche (`p(x,w,sigma|t)*p(x,w,sigma)/p(t)`) mélangeait tout. Ce qu'on infère, c'est une distribution **sur w** : la vraisemblance est p(t | x, w, &#x03C3;), le prior est p(w).
+====
+
+*Estimation :* MAP (_Maximum A Posteriori_) = argmax~w~ [ log p(t | w) + log p(w) ].
+
+==== Processus gaussiens (GP)
+
+Approche probabiliste **non paramétrique** : on place un prior directement sur les **fonctions**, défini par une fonction de covariance (noyau), p.ex. RBF. Pour RBF, le mapping de features est de dimension infinie &#x2192; on n'y accède que via le kernel trick.
+
+=== Classification linéaire
+
+==== Perceptron
+
+*Modèle :* y(x) = sign(w~0~ + w^T^x), avec étiquettes t &#x2208; {&#x2212;1, +1}.
+
+[WARNING]
+====
+Ta fiche utilisait des étiquettes {0, 1}, incompatibles avec la règle de mise à jour qui contient t~i~. Pour le perceptron, t &#x2208; {&#x2212;1, +1}.
+====
+
+*Fonction de perte :* critère du perceptron, **PAS** la log-vraisemblance :
+
+E~P~(w) = &#x2212; &#x2211;~n &#x2208; M~ t~n~ w^T^x~n~     (M = ensemble des points mal classés)
+
+*Mise à jour (online, sur les mal classés) :*
+
+w^(k+1)^ &#x2190; w^(k)^ + &#x03B7; t~n~ x~n~
+
+[WARNING]
+====
+Deux erreurs ici :
+
+. Le signe est **+** (et non &#x2212;) : la descente de gradient sur E~P~ donne w &#x2190; w + &#x03B7; t~n~ x~n~.
+. « après une MAJ il y a autant ou moins de mal classés » est **faux**. Le nombre d'erreurs n'est pas monotone. Ce qui est garanti : convergence en un **nombre fini de mises à jour SI le problème est linéairement séparable** (théorème de convergence du perceptron / Novikoff).
+====
+
+==== SVM
+
+Fonctionne aussi en régression (SVR).
+
+*Modèle :* f(x) = w^T^&#x03C6;(x) + b ; décision = sign(f(x)).
+
+* Frontière de décision : f(x) = 0
+* Marges : f(x) = &#x00B1;1
+* Vecteurs de support : points avec &#x03B1;~n~ > 0, c.-à-d. t~n~ f(x~n~) &#x2264; 1 (sur la marge ou à l'intérieur)
+
+[NOTE]
+====
+Ta condition `|f(x)| <= 1` n'est pas tout à fait juste : ce qui compte c'est t~n~ f(x~n~) &#x2264; 1 (la marge **signée**).
+====
+
+*Soft-margin (cas non séparable) :* on autorise des variables d'écart &#x03BE;~n~ &#x2265; 0.
+
+*Problème primal :*
+
+[%hardbreaks]
+min~w,b,&#x03BE;~  ½ ||w||^2^ + C &#x2211;~n~ &#x03BE;~n~
+s.c.  t~n~ (w^T^&#x03C6;(x~n~) + b) &#x2265; 1 &#x2212; &#x03BE;~n~   et   &#x03BE;~n~ &#x2265; 0
+
+[WARNING]
+====
+Ta contrainte (`tn = wTx + C*sum(epsiloni)`) était fausse : le C multiplie la somme des &#x03BE;~n~ dans l'**objectif**, pas dans la contrainte.
+====
+
+*C = 1/&#x03BB;* : pénalité des erreurs et inverse de la régularisation. C &#x2191; &#x21D2; régularisation &#x2193; (on tolère moins d'erreurs). ✓ (correct dans ta fiche)
+
+*Dual :* fait apparaître les produits scalaires &#x21D2; permet le kernel trick.
+
+==== SVM multi-classes
+
+*One-vs-All (OvA) :* k problèmes binaires.
+
+* Entraînement : k classifieurs sur **tout** le dataset (classe C~k~ = positif, le reste = négatif).
+* Test : on choisit la classe avec la **plus grande marge** parmi les k classifieurs.
+
+*One-vs-One (OvO) :* k(k&#x2212;1)/2 problèmes.
+
+* Entraînement : k(k&#x2212;1)/2 classifieurs, chacun sur le sous-ensemble des 2 classes concernées.
+* Test : on applique les k(k&#x2212;1)/2 classifieurs &#x2192; **vote majoritaire**.
+
+[NOTE]
+====
+Ta fiche disait « k(k&#x2212;1) classifieurs » au test : c'est k(k&#x2212;1)/**2**.
+====
+
+*DAGSVM :*
+
+* Entraînement : identique à OvO.
+* Test : via un graphe orienté acyclique (_Directed Acyclic Graph_, pas « acrylic » 🙂) &#x2192; seulement **k&#x2212;1** évaluations.
+
+==== Régression logistique
+
+Approche probabiliste **discriminative** (pas « déterministe »).
+
+[%hardbreaks]
+p(C~1~ | x) = &#x03C3;(z),   &#x03C3;(z) = 1 / (1 + e^&#x2212;z^),   z = w^T^x
+Décision : y = 1 si p(z) > seuil, 0 sinon
+
+*Perte :* log-vraisemblance négative (= entropie croisée).
+*Optimisation :* descente de gradient.
+
+==== Naïf de Bayes
+
+Approche probabiliste **générative**. À partir d'un prior p(C~k~), on calcule p(C~k~ | x) par Bayes.
+
+[WARNING]
+====
+L'hypothèse « naïve » est l'**indépendance conditionnelle** des features **sachant la classe**, et non « toutes les features sont également importantes ».
+====
+
+[%hardbreaks]
+*Modèle :*  p(C~k~ | x) &#x221D; p(C~k~) &#x220F;~i~ p(x~i~ | C~k~)
+*Décision :*  y(x) = argmax~k~ [ p(C~k~) &#x220F;~i~ p(x~i~ | C~k~) ]
+
+*Estimation :* MLE pour le prior p(C~k~) et les vraisemblances p(x~i~ | C~k~).
+
+== Apprentissage non supervisé
+
+=== Clustering
+
+Regrouper les données par similarité (k-means, hiérarchique, etc.).
+
+[NOTE]
+====
+Ta fiche rangeait le clustering sous un titre « Classification linéaire » et y mettait les MDP : c'est incohérent. Le clustering n'est pas de la classification linéaire, et les MDP relèvent de l'**apprentissage par renforcement** (paradigme à part, ci-dessous).
+====
+
+== Apprentissage par renforcement (MDP)
+
+=== Programmation dynamique (modèle connu)
+
+==== Itération de politique (_Policy Iteration_)
+
+*Évaluation de politique :*
+
+V^&#x03C0;^(s) = &#x2211;~a~ &#x03C0;(a|s) &#x2211;~s',r~ p(s',r | s,a) [ r + &#x03B3; V^&#x03C0;^(s') ]
+
+*Amélioration de politique :*
+
+&#x03C0;'(s) = argmax~a~ &#x2211;~s',r~ p(s',r | s,a) [ r + &#x03B3; V^&#x03C0;^(s') ]
+
+[NOTE]
+====
+Dans l'argmax il ne doit **pas** rester de &#x03C0;(a|s) : on maximise sur l'action a.
+====
+
+==== Itération de valeur (_Value Iteration_)
+
+[%hardbreaks]
+V(s) &#x2190; max~a~ &#x2211;~s',r~ p(s',r | s,a) [ r + &#x03B3; V(s') ]
+&#x03C0;(s) = argmax~a~ &#x2211;~s',r~ p(s',r | s,a) [ r + &#x03B3; V(s') ]
+
+[NOTE]
+====
+Notation : le facteur d'actualisation est **&#x03B3;** (gamma), pas &#x03BB;. Ta fiche alternait entre les deux — &#x03BB; sert plutôt aux traces d'éligibilité ou à la régularisation.
+====
+
+=== Méthodes sans modèle (_model-free_)
+
+==== Monte Carlo
+
+Sans modèle, on-policy. Uniquement tâches **épisodiques** (finies).
+
+V(S) = G(S) / N(S)   (moyenne des retours)
+
+Deux variantes : _first-visit_ (on ne compte que la 1re visite d'un état par épisode) et _every-visit_.
+
+==== TD(0)
+
+Sans modèle, on-policy, **bootstrapping** : mise à jour à chaque pas, sans attendre la fin de l'épisode (marche aussi en continu).
+
+[%hardbreaks]
+Initialiser V(s) arbitrairement, V(terminal) = 0
+Pour chaque pas de l'épisode :
+  A &#x2190; action donnée par &#x03C0;
+  exécuter A, observer R, S'
+  V(S) &#x2190; V(S) + &#x03B1; [ R + &#x03B3; V(S') &#x2212; V(S) ]
+
+[NOTE]
+====
+TD(0) estime la fonction de valeur d'**état** V. Pour les valeurs d'**action** Q, on passe à SARSA / Q-learning (la ligne `Q(s,a)` accrochée à TD(0) dans ta fiche était de trop).
+====
+
+==== SARSA
+
+Sans modèle, **on-policy**.
+
+[%hardbreaks]
+Initialiser Q(s,a) arbitrairement, Q(terminal,&#x00B7;) = 0
+Choisir A depuis S via politique &#x03B5;-greedy
+Pour chaque pas de l'épisode :
+  exécuter A, observer R, S'
+  choisir A' depuis S' via &#x03B5;-greedy
+  Q(S,A) &#x2190; Q(S,A) + &#x03B1; [ R + &#x03B3; Q(S',A') &#x2212; Q(S,A) ]
+  S &#x2190; S' ;  A &#x2190; A'
+
+==== Q-learning
+
+Sans modèle, **off-policy**.
+
+[%hardbreaks]
+Initialiser Q(s,a) arbitrairement, Q(terminal,&#x00B7;) = 0
+Pour chaque pas de l'épisode :
+  choisir A depuis S via &#x03B5;-greedy
+  exécuter A, observer R, S'
+  Q(S,A) &#x2190; Q(S,A) + &#x03B1; [ R + &#x03B3; max~a~ Q(S',a) &#x2212; Q(S,A) ]
+  S &#x2190; S'
+
+[NOTE]
+====
+Pas de report `A = A'` (c'est propre à SARSA) : on re-choisit A depuis S à chaque pas. C'est le **max~a~** dans la cible qui rend l'algo off-policy (la cible suit la politique gloutonne, indépendamment de la politique de comportement).
+====
+
+== Multi-Armed Bandits
+
+=== UCB1
+
+*Quand l'utiliser :*
+
+* Pas d'état qui évolue avec les actions (l'action d'aujourd'hui ne change pas celle de demain).
+* Feedback **partiel** : on n'observe la récompense que du bras choisi.
+
+*Borne :*
+
+U(a~i~) = moyenne empirique + &#x221A;( 2 ln(t) / N~t~(a~i~) )
+
+* 1^er^ terme = exploitation
+* 2^e^ terme = exploration
+
+[NOTE]
+====
+Forme classique UCB1 (Auer et al. 2002) : la constante est **2 ln(t) / N**. Ta version &#x221A;(ln t / (2N)) vient d'une borne de Hoeffding avec un autre choix de niveau de confiance &#x03B4;. Les deux sont de la même famille — vérifie la convention exacte des diapos de Loiacono/Restelli pour répondre « juste » à l'examen.
+====
+
+*Regret :*
+
+[%hardbreaks]
+gap : &#x0394;~i~ = R* &#x2212; R(a~i~)
+Stochastique : chaque bras a une distribution de récompense fixe.
+Adversarial : un adversaire peut modifier les récompenses &#x2192; le regret se mesure contre le meilleur bras fixe _a posteriori_.
+
+=== Thompson Sampling
+
+Approche **bayésienne** : on maintient un posterior sur la récompense de chaque bras. À chaque tour :
+
+. échantillonner un paramètre depuis le posterior de chaque bras,
+. jouer le bras dont l'échantillon est le plus élevé,
+. mettre à jour le posterior du bras joué.
+
+Exemple courant : modèle Beta-Bernoulli (récompenses 0/1, posterior Beta(&#x03B1;, &#x03B2;)).
