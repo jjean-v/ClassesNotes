@@ -322,3 +322,11 @@ Injection:
     -1 UNION SELECT user_id, username (other round with password) FROM accounts JOIN ownership ON accounts.u_id = ownership.u_id  JOIN warehouse ON ownership.p_id = warehouse.p_id WHERE product_name = "excalibur";--
 
 
+# Malware Exercice 
+
+## Exercice 1
+
+Technique userd: Metamorphism the malware is different in syntax, the semantique is the same 
+If you have only one sample of code you can say nothing if it is Methamorphique or Polymorphic. Except if there is strange behaviour, sleep for a long period of time check for smthg.
+
+As soon as you see (bad) instruction it means its **polymorphic** 
